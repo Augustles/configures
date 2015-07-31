@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+	<head>
+		<title/>
+	</head>
+	<body>
+		<outline title="Ent" text="Ent">
+			<outline htmlUrl="http://cn.engadget.com" xmlUrl="http://cn.engadget.com/rss.xml" version="RSS" type="rss" title="Engadget 中国版 RSS Feed" text="Engadget 中国版 RSS Feed"/>
+			<outline htmlUrl="http://movie.douban.com/review/movie_best/" xmlUrl="http://movie.douban.com/feed/review/movie" version="RSS" type="rss" title="豆瓣最受欢迎的影评" text="豆瓣最受欢迎的影评"/>
+			<outline htmlUrl="http://each.fm" xmlUrl="http://each.fm/live/53c6d726d01983e704000008/rss.xml" version="RSS" type="rss" title="GuAo.hk | 谷奥——探寻谷歌的奥秘" text="GuAo.hk | 谷奥——探寻谷歌的奥秘"/>
+		</outline>
+		<outline title="Internet" text="Internet">
+			<outline htmlUrl="http://www.williamlong.info/" xmlUrl="http://feed.williamlong.info" version="RSS" type="rss" title="月光博客" text="月光博客"/>
+			<outline htmlUrl="http://www.appinn.com" xmlUrl="http://www.appinn.com/feed" version="RSS" type="rss" title="小众软件" text="小众软件"/>
+			<outline htmlUrl="http://www.ifanr.com?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=" xmlUrl="http://www.ifanr.com/feed" version="RSS" type="rss" title="爱范儿 · Beats of Bits" text="爱范儿 · Beats of Bits"/>
+			<outline htmlUrl="http://www.geekpark.net/" xmlUrl="http://feeds.geekpark.net" version="RSS" type="rss" title="极客公园-GeekPark" text="极客公园-GeekPark"/>
+			<outline htmlUrl="http://www.oschina.net/?from=rss" xmlUrl="http://www.oschina.net/news/rss" version="RSS" type="rss" title="开源中国社区最新新闻" text="开源中国社区最新新闻"/>
+			<outline htmlUrl="http://36kr.com" xmlUrl="http://www.36kr.com/feed" version="RSS" type="rss" title="36氪 | 关注互联网创业" text="36氪 | 关注互联网创业"/>
+			<outline htmlUrl="http://www.huxiu.com" xmlUrl="http://www.huxiu.com/rss/0.xml" version="RSS" type="rss" title="虎嗅网" text="虎嗅网"/>
+			<outline htmlUrl="http://www1.taosay.net" xmlUrl="http://taosay.net/?feed=rss2" version="RSS" type="rss" title="道哥的黑板报" text="道哥的黑板报"/>
+			<outline htmlUrl="http://bbs.feng.com/thread-htm-fid-19.html" xmlUrl="http://bbs.feng.com/forum.php?mod=rss&amp;fid=19&amp;auth=0" version="RSS" type="rss" title="威锋论坛 - Mac OSX 软件游戏分享区" text="威锋论坛 - Mac OSX 软件游戏分享区"/>
+			<outline htmlUrl="http://xbeta.info" xmlUrl="http://feed.xbeta.info/" version="RSS" type="rss" title="善用佳软" text="善用佳软"/>
+		</outline>
+		<outline title="Secure" text="Secure">
+			<outline htmlUrl="http://drops.wooyun.org" xmlUrl="http://drops.wooyun.org/feed" version="RSS" type="rss" title="WooYun知识库" text="WooYun知识库"/>
+			<outline htmlUrl="https://www.91ri.org" xmlUrl="http://www.91ri.org/feed" version="RSS" type="rss" title="91Ri.org" text="91Ri.org"/>
+			<outline htmlUrl="http://evilcos.me" xmlUrl="http://evilcos.me/?feed=rss2" version="RSS" type="rss" title="EVILCOS" text="EVILCOS"/>
+			<outline htmlUrl="http://www.freebuf.com" xmlUrl="http://www.freebuf.com/feed" version="RSS" type="rss" title="FreeBuf.COM | 关注黑客与极客" text="FreeBuf.COM | 关注黑客与极客"/>
+		</outline>
+		<outline title="Tech" text="Tech">
+			<outline htmlUrl="http://huoding.com" xmlUrl="http://huoding.com/feed" version="RSS" type="rss" title="火丁笔记" text="火丁笔记"/>
+			<outline htmlUrl="http://www.liaoxuefeng.com/" xmlUrl="http://www.liaoxuefeng.com/feed" version="RSS" type="rss" title="廖雪峰的官方网站" text="廖雪峰的官方网站"/>
+			<outline htmlUrl="https://blog.linuxeye.com" xmlUrl="http://blog.linuxeye.com/feed" version="RSS" type="rss" title="Linux运维笔记" text="Linux运维笔记"/>
+			<outline htmlUrl="https://www.leavesongs.com/" xmlUrl="http://www.leavesongs.com/rss.php" version="RSS" type="rss" title="离别歌" text="离别歌"/>
+			<outline htmlUrl="http://lutaf.com" xmlUrl="http://lutaf.com/feed" version="RSS" type="rss" title="鲁塔弗的博客" text="鲁塔弗的博客"/>
+			<outline htmlUrl="http://www.yangzhiping.com/" xmlUrl="http://www.yangzhiping.com/feed.xml" version="RSS" type="rss" title="阳志平的网志" text="阳志平的网志"/>
+			<outline htmlUrl="http://ninghao.net/blog" xmlUrl="http://ninghao.net/blog/rss" version="RSS" type="rss" title="网页设计杂志 - 宁皓网" text="网页设计杂志 - 宁皓网"/>
+			<outline htmlUrl="http://www.osyunwei.com" xmlUrl="http://www.osyunwei.com/rss" version="RSS" type="rss" title="系统运维" text="系统运维"/>
+			<outline htmlUrl="http://www.minunix.com" xmlUrl="http://www.minunix.com/rss" version="RSS" type="rss" title="系统运维" text="系统运维"/>
+			<outline htmlUrl="http://www.ruanyifeng.com/blog/" xmlUrl="http://www.ruanyifeng.com/blog/atom.xml" version="RSS" type="rss" title="阮一峰的网络日志" text="阮一峰的网络日志"/>
+			<outline htmlUrl="http://coolshell.cn" xmlUrl="http://coolshell.cn/feed" version="RSS" type="rss" title="酷 壳 - CoolShell.cn" text="酷 壳 - CoolShell.cn"/>
+			<outline htmlUrl="https://www.v2ex.com/" xmlUrl="http://www.v2ex.com/index.xml" version="RSS" type="rss" title="V2EX" text="V2EX"/>
+			<outline htmlUrl="http://os.51cto.com/col/545" xmlUrl="http://www.51cto.com/php/rss.php?typeid=545" version="RSS" type="rss" title="运维经验＆工具" text="运维经验＆工具"/>
+			<outline htmlUrl="http://lucifr.com" xmlUrl="http://lucifr.com/atom.xml" version="RSS" type="rss" title="Lucifr" text="Lucifr"/>
+			<outline htmlUrl="http://segmentfault.com" xmlUrl="http://segmentfault.com/feeds" version="RSS" type="rss" title="SegmentFault 最新的问题" text="SegmentFault 最新的问题"/>
+			<outline htmlUrl="http://yansu.org/pages/atom.xml" xmlUrl="http://yansu.org/pages/atom.xml" version="RSS" type="rss" title="闫肃的博客" text="闫肃的博客"/>
+			<outline htmlUrl="http://macshuo.com" xmlUrl="http://macshuo.com/?feed=rss2" version="RSS" type="rss" title="MacTalk-池建强的随想录" text="MacTalk-池建强的随想录"/>
+			<outline htmlUrl="http://os.51cto.com/col/523" xmlUrl="http://www.51cto.com/php/rss.php?typeid=523" version="RSS" type="rss" title="Linux" text="Linux"/>
+			<outline htmlUrl="https://linuxtoy.org/" xmlUrl="https://linuxtoy.org/feed" version="RSS" type="rss" title="LinuxTOY" text="LinuxTOY"/>
+			<outline htmlUrl="http://feed.feedsky.com/osxtoy" xmlUrl="http://feed.feedsky.com/osxtoy" version="RSS" type="rss" title="OSX玩意 / OSXToy" text="OSX玩意 / OSXToy"/>
+		</outline>
+	</body>
+</opml>
