@@ -106,3 +106,53 @@ http://stackoverflow.com/questions/14388706/socket-options-so-reuseaddr-and-so-r
 48. where is my httpd.conf located apached
 49. how do i write stderr to a file while using 'tee' with a pipe
 50. what does the number in parentheses shown after unix command names mean
+51. Linux: Prevent a background process from being stopped after closing SSH client
+52. is there a way for non-root processes to bind to 'privileged' ports
+53. need a good hex editor for linux
+54. how to get full path of a file
+55. unix shell script find out which directory the script file reside
+56. how to have the cp command create any necessary folders for copying a file to destination
+57. get current time in seconds since the epoch on linux, bash
+58. set screen names with gnu screen
+59. how to redirect output to a file and stdout
+60. who 'killed' my process and why
+61. aborting a shell script if any command returns a non-zero value
+62. how can i get 'find' to ignore .svn directories
+63. getting root permission on a file inside of vi
+64. grep, but only certain file extensions
+65. how do send a file  as email attachment using linux command line
+66. how to compare strings in bash script
+67. graphical diff programs for linux
+68. print a file skipping x lines in bash
+69. how to run process as background an never die
+70. are there any standard exit status codes in linux
+71. how to list the contents of a package using yum
+72. quickly create al large file on a linux system
+73. how to find out which processes are swapping in linux
+74. what is the ld_preload trick
+75. can a shell script set environment variables of the calling shell
+76. sudo echo “something” >> /etc/privilegedFile doesn't work… is there an alternative?
+77. how to list all users in a linux group
+78. given two directory trees, how can i find out which file differ
+79. how do you recursively ftp a folder in linux
+80. how to join multiple lines of file names into one with custom delimiter
+81. exclude .svn directories from grep
+82. good linux svn client
+83. sleep for milliseconds
+84. append one file to another in linux
+85. get program execution time in the shell
+86. how do i find my rsa key fingerprint
+87. peak memory usage of a linux/unix process
+88. is there a c++ gdb gui for linux
+89. how to permanently set $path on linux
+90. bash: how __best__ to include other scripts
+91. mysql_config not found when installing mysqldb python interface
+92. threads vs processes in linux
+93. Why does “while(true)” without “Thread.sleep” cause 100% CPU usage on Linux but not on Windows?
+94. is there a command to list all unix group names
+95. how to add default include path for gcc in linux
+96. why use python's os module methods instead of executing shell commands directly
+97. how can i exclude directories from grep -r
+98. ./configure :/bin/sh^M :bad interpreter
+99. error: could not find or load main class
+100. how to kill all precesses with a given partial name
