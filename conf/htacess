@@ -1,0 +1,20 @@
+.htaccess
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www.xmhwxd.com$ [NC]
+RewriteRule ^(.*)$ http://www.xmhwxd.com/$1 [L,R=301]
+RewriteRule ^category/list-([0-9]+)\.html$ plus/list.php?tid=$1
+RewriteRule ^category/list-([0-9]+)-([0-9]+)-([0-9]+)\.html$ plus/list.php?tid=$1&TotalResult=$2&PageNo=$3
+RewriteRule ^articles/view-([0-9]+)-1\.html$ plus/view.php?aid=$1
+RewriteRule ^articles/view-([0-9]+)-([0-9]+)\.html$ plus/view.php?aid=$1&pageno=$2
+RewriteEngine on  RewriteCond % !^$ 
+RewriteRule uploads/(.*).(php)$ – [F] 
+RewriteRule data/(.*).(php)$ – [F] 
+RewriteRule templets/(.*).(php)$ – [F]
+RewriteRule a/(.*).(php)$ – [F]
+RewriteRule images/(.*).(php)$ – [F]
+RewriteRule special/(.*).(php)$ – [F]
+<Files ~ "^.(htaccess|htpasswd)$">
+deny from all
+</Files>
+ErrorDocument 404 /404.html
+order deny,allow
