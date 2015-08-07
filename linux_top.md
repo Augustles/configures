@@ -156,3 +156,57 @@ http://stackoverflow.com/questions/14388706/socket-options-so-reuseaddr-and-so-r
 98. ./configure :/bin/sh^M :bad interpreter
 99. error: could not find or load main class
 100. how to kill all precesses with a given partial name
+
+1. how do i output color text to linux terminal
+2. what linux/unix commands are outdated and have powerful alternatives
+3. how to write cd command in makefile
+4. how to recursively find and list the lastest
+5. iptables remove specific rules
+6. how should strace be used 
+7. bash: pipe output and capture exist status
+8. how does `cat << EOF` work in bash
+9. how to see top processes by actual memory usage
+10. argument list too long error for rm,cp,mv commands
+find . -name "*.pdf" -print0 | xargs -0 rm
+11. linux command to print directory structure in the form of a tree
+sudo apt-get install tree
+12. clear the ubuntu bash screen for real
+printf "\033c"
+13. simulate delayed and droped packets on linux
+14. is it safe to parse a /proc/file
+15. how is linux kernel tested
+16. android debug bridge (adb) device no permissions
+17. restarting cron after changing crontab file
+18. how do i check syntax in bash without running the script
+19. what does 'opt' mean (as in the 'opt' directory) is it an abbreviation
+20. how to remove all .svn drectories from my application directories
+21. linux command to list all available commands and aliases
+22. virtual memory usage from java under linux, too much memory used
+23. set up device from development (????? no permissions)
+24. how to force cp to overwrite without confirmation
+25. what's an easy way to read random line from a file in unix command line
+26. make $java_home easily changable in ubuntu
+27. linux equivalent of the mac os x 'open' command
+28. force unmount of nfs-mounted directory
+29. maximum number of  threads per process in linux
+30. why do you need to put #!/bin/bash at the beginning of a script file
+31. how to know mysql my.cnf location
+32. how can i copy the output of a command directly into my clipboard
+33. how can i use xargs to copy files that have spaces and quotes in their names
+34. bash tool to get nth line from a file
+35. create a symbolic link of directory in ubuntu
+36. how do i get windows to go as fast as linux compiling c++
+37. httpd: could not reliably determine the server's fully qualified domain name, using 127.0.0.1 for servername
+38. how do i get curl to not show progress bar
+39. id cannot find an existing library
+40. how to get console window width in python
+41. centos 64 bit bad elf interpreter
+42. network usage top/htop on linux
+43. why main does not return 0 here
+44. http post and get using curl in linux
+45. finding current executable's path without /proc/self/exe
+46. svn checkout the contents of a folder, not the folder itself
+47. extract file basename without path and extension in bash
+48. command line csv viewer
+49. how can i format my grep output show line numbers at the end of the line, and the hit count
+50. how to find the location of the executable in c

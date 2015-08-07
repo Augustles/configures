@@ -23,15 +23,17 @@
 9. alfred/Synapse/lauchy启动器
 10. homebrew/apt-get包管理
 11. dash/velocity文档管理
-12. reeder/foxmail rss和邮件
+12. reeder/foxmail/press rss和邮件
 13. easyfind/everything快速索引
 14. coderunner
 15. evernote/pocket
+16. diskmaker/Remastersys/一键ghost/win32diskimager/ultraiso
 
 beyond compare 文本比较
 Synergy 键盘共享
 bittorrent-sync 点对点同步
-airdroid 无线连接安卓
+prompt ios
+airdroid zanti fing 幻影pin juicessh andriod
 `netstat -ano` 查看是否有可疑的连接，pid
 
 ###### mac软件相关网址
@@ -71,7 +73,7 @@ brew cask基于brew的mac封装机制
 	brew cask install the-unarchiver
 	 
 
-* alfred(launchy,synapse)（效率）+ iterm2（gow,Terminator）+ zsh(bash)+ vim(/usr/share/vim)(sublime,emacs) + EasyFind(everything) w3m(文字浏览器)+ReadKit(foxmail) pocket evernote nosleep burn(BurnAware Free刻录) moom(窗口管理)+MplayerX 视频
+* alfred(launchy,synapse)（效率）+ iterm2（gow,Terminator）+ zsh(bash)+ vim(/usr/share/vim)(sublime,emacs) + EasyFind(everything) w3m(文字浏览器)+ReadKit(foxmail) pocket evernote nosleep burn(BurnAware Free刻录) moom(窗口管理)+MplayerX+vlc视频
 lanuchrocket memcached redis mongodb nginx mysql
 cheatsheet(Hotkey Explorer) [快捷键表](http://www.cheatsheetapp.com/CheatSheet/)
 
@@ -79,7 +81,7 @@ cheatsheet(Hotkey Explorer) [快捷键表](http://www.cheatsheetapp.com/CheatShe
 ruby gem，curl -L get.rvm.io | bash -s stable   更换源，gem sources --remove https://rubygems.org/，gem sources -a http://ruby.taobao.org/，
 chrome 插件，http://chrome-extension-downloader.com Any.do ,Evernote web clipper , save to pocket,firebug, lastpass, proxy swiftsharp, rss subscribtion extension, rss feed reader, seo in china, undo closetab, vimium, youdao, mac不发热,
 
-#### vim配置，打开vim，vimrc.bundles 安装插件:BundleInstall，更新插件:BundleUpdate，
+#### vim配置，打开vim，安装插件:BundleInstall，更新插件:BundleUpdate，
 	brew install node npm
 	npm install jshint -g
 	git clone https://github.com/wklken/k-vim.git&&cd /k-vim&&sh -x install.sh
