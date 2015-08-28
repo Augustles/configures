@@ -1,12 +1,12 @@
 # ubuntu/centos笔记
 #### 软件源优化
 #### 常用软件
-	sudo apt-get install zsh git python python-pip wget curl
-	sudo apt-get install python-dev openssl-dev libffi-dev libxml2-dev libxslt1-dev
+	sudo apt-get install zsh vim git python python-pip wget curl
+	sudo apt-get install python-dev libffi-dev libxml2-dev libxslt1-dev libssl-dev libmysqlclient-dev
 	sudo apt-get install ranger htop dstat glances screen slurm
 	sudo pip install virtualenv virtualenvwrapper
 	which virtualenvwrapper
-	pip install ipython cheat fabric ipdb 
+	pip install ipython glances cheat fabric ipdb sh
 	
 	sudo yum install python-devel libxml2-devel python-setuptools zlib-devel wget pcre-devel gcc make mysql-devel
 #### deb,rpm软件安装

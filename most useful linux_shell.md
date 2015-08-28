@@ -39,3 +39,24 @@
     netstat -tulnp
 ####更友好的显示当前挂载的文件系统
     mount |column -t
+
+
+####测试磁盘读写速度
+    dd bs=1M count=128 if=/dev/zero of=./largefile conv=fdatasync
+####查看文件大小
+    du -h file
+####查看目录有多少个文件
+    ls |wc -l
+####查找大文件或者目录(前十)
+    du -s * | sort -nr | head
+####vi替换
+    :%s/abc/123/g
+####查找文本里内容, -s屏蔽没有找到grep
+    find . |xargs grep 'sda' -s
+####shell中|,&&,||
+|,为管道, 同时执行
+&&,前一个命令成功,执行下一个
+||,前一个命令失败,才会执行下一个
+&, bash后台运行
+command&command1&command2同时执行三个命令
+;,不管前面命名时候成功,都执行下一个

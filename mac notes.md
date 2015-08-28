@@ -9,32 +9,6 @@
 * 最大的优势在于续航和触摸板，真的可以在触摸板上通过不同的手势完成鼠标的一切，比如最大化，最小化，浏览器刷新，窗口切换等，完爆windows笔记本。（有时候需要借助一些小巧的三方软件）
 有钱买HHKB，嫌贵考虑FILCO、海盗船之类，桌子大买Cherry非平胸版，再下来可以考虑Poker、Race之类，ikbc F 104也可以,楼主其实也不是alienware脑残粉，其他品牌的产品楼主也还是很喜欢的，某蛇razer的鼠标垫呀，某樱桃cherry的键盘啊。某钛客的鼠标啊那些
 
-* crontab, /etc/init.d/rc.local,
-任务计划程序, `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`
-####window,linux,mac
-1. chrome/firefox/safari浏览器
-2. vim/sublime text/notepad++文本编辑器
-3. mou/markdownpad md文本
-4. zsh/bash/fish/cygwin shell环境
-5. ssh/telnet远程登录
-6. sftp/ftp/filezilla ftp文件管理
-7. rsync/cwrsync同步文件
-8. parallels desktop/virtual box虚拟机
-9. alfred/Synapse/lauchy启动器
-10. homebrew/apt-get包管理
-11. dash/velocity文档管理
-12. reeder/foxmail/press rss和邮件
-13. easyfind/everything快速索引
-14. coderunner
-15. evernote/pocket
-16. diskmaker/Remastersys/一键ghost/win32diskimager/ultraiso
-
-beyond compare 文本比较
-Synergy 键盘共享
-bittorrent-sync 点对点同步
-prompt ios
-airdroid zanti fing 幻影pin juicessh andriod
-`netstat -ano` 查看是否有可疑的连接，pid
 
 ###### mac软件相关网址
 [macupdate](http://www.macupdate.com)
@@ -81,7 +55,9 @@ cheatsheet(Hotkey Explorer) [快捷键表](http://www.cheatsheetapp.com/CheatShe
 ruby gem，curl -L get.rvm.io | bash -s stable   更换源，gem sources --remove https://rubygems.org/，gem sources -a http://ruby.taobao.org/，
 chrome 插件，http://chrome-extension-downloader.com Any.do ,Evernote web clipper , save to pocket,firebug, lastpass, proxy swiftsharp, rss subscribtion extension, rss feed reader, seo in china, undo closetab, vimium, youdao, mac不发热,
 
-#### vim配置，打开vim，安装插件:BundleInstall，更新插件:BundleUpdate，
+#### vim配置，打开vim，
+	安装插件:BundleInstall，更新插件:BundleUpdate
+	python代码补全Youcompeleteme
 	brew install node npm
 	npm install jshint -g
 	git clone https://github.com/wklken/k-vim.git&&cd /k-vim&&sh -x install.sh
@@ -95,7 +71,7 @@ chrome 插件，http://chrome-extension-downloader.com Any.do ,Evernote web clip
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 	export LC_ALL=en_US.UTF-8 export LANG=en_US.UTF-8
 
-+ sublime配置：sublime text 2 http://www.douban.com/group/topic/28027863/
++ sublime配置：sublime text 2 python代码补全插件: jedi, sublimerepr http://www.douban.com/group/topic/28027863/
 + 快捷键表 https://gist.github.com/lucasfais/1207002
 
 ##### 访问远程共享  
