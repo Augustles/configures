@@ -49,10 +49,16 @@
     ls |wc -l
 ####查找大文件或者目录(前十)
     du -s * | sort -nr | head
-####vi替换
+####vim替换
     :%s/abc/123/g
+####vim二进制文件编辑
+    vim -b file
+    :%!xxd
 ####查找文本里内容, -s屏蔽没有找到grep
     find . |xargs grep 'sda' -s
+####查找并删除某个后缀文件
+    find . -iname '*.torrent' |xargs rm
+    ls|xargs rm
 ####shell中|,&&,||
 |,为管道, 同时执行
 &&,前一个命令成功,执行下一个

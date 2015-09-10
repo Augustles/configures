@@ -71,7 +71,12 @@ chrome 插件，http://chrome-extension-downloader.com Any.do ,Evernote web clip
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 	export LC_ALL=en_US.UTF-8 export LANG=en_US.UTF-8
 
-+ sublime配置：sublime text 2 python代码补全插件: jedi, sublimerepr http://www.douban.com/group/topic/28027863/
++ sublime配置：sublime text 2 
+1. python代码补全插件: jedi
+2. python格式化代码: pep8 autoformat
+3. 语法检测: flake8 lint
+4. repr: sublimerepr
+http://www.douban.com/group/topic/28027863/
 + 快捷键表 https://gist.github.com/lucasfais/1207002
 
 ##### 访问远程共享  
