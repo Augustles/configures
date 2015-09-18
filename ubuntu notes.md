@@ -47,6 +47,9 @@
 	cat /var/log/secure | awk '/Failed/{print $(NF-3)}' | sort | uniq -c | awk '{print $2" = "$1;}'
 
 #### 截图工具Shutter
+#### 命令行下图片eog
+	sudo apt-get install eog
+#### w3m, ranger
 
 #### 程序启动器Synapse
 
