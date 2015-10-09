@@ -1,10 +1,10 @@
 ##djangonote
 
 tutorial1
-1.django-admin.pystartnewsubject;创建新项目
-2.pythonmanage.pyrunserver0.0.0.0:8080;绑定.0开发用服务器
-3.pythonmanage.pysyncdb;创建数据库的表
-4.pythonmanage.pystartappblog;创建blog应用
+1.django-admin.py startnewsubject;创建新项目
+2.python manage.py runserver 0.0.0.0:8080;绑定.0开发用服务器
+3.python manage.py syncdb;创建数据库的表
+4.python manage.py startapp blog;创建blog应用
 5.settings.py激活INSTALLED_APPS的blog应用
 
 tutorial2
@@ -21,7 +21,8 @@ tutorial3
 
 tips:
 1.pythonmanage.pyshell;进入django交互shell
-
+from ask.models import Ask
+Ask.objects.all()
 django的调度逻辑图
 
 目录
@@ -214,8 +215,8 @@ model=Article
 第二部分：显示
 在把form表单和模板进行结合之前，先要知道如何处理提交的表单。
 (预备知识)在view中的标准处理form的框架
-fromdjango.shortcutsimportrender
-fromdjango.httpimportHttpResponseRedirect
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 defcontact(request):
 ifrequest.method=='POST':#表单被提交
@@ -512,7 +513,8 @@ Q(pub_date=date(2005,5,2))|Q(pub_date=date(2005,5,6))
 比较记录对象
 >>>some_obj==other_obj
 删除记录对象
-默认情况下以该对象为主键的对应记录被删除>>>Entry.objects.filter(pub_date__year=2005).delete()
+默认情况下以该对象为主键的对应记录被删除
+>>>Entry.objects.filter(pub_date__year=2005).delete()
 拷贝记录对象
 把pk设为None，然后保存
 >>>blog=Blog(name='Myblog',tagline='Bloggingiseasy')

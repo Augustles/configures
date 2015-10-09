@@ -54,6 +54,8 @@
 #### 程序启动器Synapse
 
 #### Remmina(ftp,rdp,ssh,vnc)
+#### 自启动ssh
+	update-rc.d ssh enable
 
 #### remastersys(打包iso)
 https://launchpad.net/

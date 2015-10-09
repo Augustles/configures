@@ -66,3 +66,5 @@
 &, bash后台运行
 command&command1&command2同时执行三个命令
 ;,不管前面命名时候成功,都执行下一个
+####删除重复文件
+    find -name '*.sh' -exec md5sum {} \;| sort | uniq -d -w 33
