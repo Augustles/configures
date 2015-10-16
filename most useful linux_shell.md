@@ -59,12 +59,5 @@
 ####查找并删除某个后缀文件
     find . -iname '*.torrent' |xargs rm
     ls|xargs rm
-####shell中|,&&,||
-|,为管道, 同时执行
-&&,前一个命令成功,执行下一个
-||,前一个命令失败,才会执行下一个
-&, bash后台运行
-command&command1&command2同时执行三个命令
-;,不管前面命名时候成功,都执行下一个
 ####删除重复文件
     find -name '*.sh' -exec md5sum {} \;| sort | uniq -d -w 33

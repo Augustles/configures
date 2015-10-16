@@ -57,6 +57,10 @@
 #### 自启动ssh
 	update-rc.d ssh enable
 
+####共享键盘鼠标
+	sudo apt-get install synergy
+	sudo apt-get install quicksynergy
+
 #### remastersys(打包iso)
 https://launchpad.net/
 https://launchpad.net/~mutse-young/+archive/ubuntu/remastersys
