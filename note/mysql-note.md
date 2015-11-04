@@ -70,3 +70,12 @@ CREATE TABLE `douban` (
   `updated` datetime DEFAULT NULL  COMMENT '最后更新时间',
   PRIMARY KEY (`linkmd5id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+python manage.py schemamigration youappname --initial
+
+# --initial在数据库创建models定义的表，以及South需要的south_migrationhistory表，另外会在youappname目录下面创建一个migrations的子目录   
+#以后每次对models更改后，可以运行以下两条命令同步到数据库   
+python manage.py schemamigration youappname --auto     #检测对models的更改
+
+python manage.py migrate youappnam  #将更改反应到数据库

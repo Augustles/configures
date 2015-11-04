@@ -7,7 +7,7 @@
 		<outline title="Ent" text="Ent">
 			<outline htmlUrl="http://cn.engadget.com" xmlUrl="http://cn.engadget.com/rss.xml" version="RSS" type="rss" title="Engadget 中国版 RSS Feed" text="Engadget 中国版 RSS Feed"/>
 			<outline htmlUrl="http://movie.douban.com/review/movie_best/" xmlUrl="http://movie.douban.com/feed/review/movie" version="RSS" type="rss" title="豆瓣最受欢迎的影评" text="豆瓣最受欢迎的影评"/>
-			<outline htmlUrl="http://each.fm" xmlUrl="http://each.fm/live/53c6d726d01983e704000008/rss.xml" version="RSS" type="rss" title="GuAo.hk | 谷奥——探寻谷歌的奥秘" text="GuAo.hk | 谷奥——探寻谷歌的奥秘"/>
+			<outline htmlUrl="http://kenshin.hk" xmlUrl="http://kenshin.hk/rss" version="RSS" type="rss" title="劍心．回憶" text="劍心．回憶"/>
 		</outline>
 		<outline title="Internet" text="Internet">
 			<outline htmlUrl="http://www.williamlong.info/" xmlUrl="http://feed.williamlong.info" version="RSS" type="rss" title="月光博客" text="月光博客"/>
@@ -28,7 +28,7 @@
 			<outline htmlUrl="http://www.freebuf.com" xmlUrl="http://www.freebuf.com/feed" version="RSS" type="rss" title="FreeBuf.COM | 关注黑客与极客" text="FreeBuf.COM | 关注黑客与极客"/>
 		</outline>
 		<outline title="Tech" text="Tech">
-			<outline htmlUrl="http://huoding.com" xmlUrl="http://huoding.com/feed" version="RSS" type="rss" title="火丁笔记" text="火丁笔记"/>
+			<outline htmlUrl="http://huoding.com/feed" xmlUrl="http://huoding.com/feed" version="RSS" type="rss" title="火丁笔记" text="火丁笔记"/>
 			<outline htmlUrl="http://www.liaoxuefeng.com/" xmlUrl="http://www.liaoxuefeng.com/feed" version="RSS" type="rss" title="廖雪峰的官方网站" text="廖雪峰的官方网站"/>
 			<outline htmlUrl="https://blog.linuxeye.com" xmlUrl="http://blog.linuxeye.com/feed" version="RSS" type="rss" title="Linux运维笔记" text="Linux运维笔记"/>
 			<outline htmlUrl="https://www.leavesongs.com/" xmlUrl="http://www.leavesongs.com/rss.php" version="RSS" type="rss" title="离别歌" text="离别歌"/>

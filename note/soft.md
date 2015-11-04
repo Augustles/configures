@@ -3,7 +3,7 @@
 1. chrome/firefox/safari浏览器
 2. vim/sublime text/notepad++文本编辑器
 3. mou/markdownpad md文本
-4. zsh/bash/fish/cygwin/mobaxterm shell环境
+4. zsh/bash/fish/cygwin shell环境
 5. ssh/telnet远程登录
 6. sftp/ftp/filezilla ftp文件管理
 7. rsync/cwrsync同步文件
@@ -19,12 +19,15 @@
 17. open/xdg-open
 18. git 版本控制
 19. beyond compare 文本比较
+20. heidisql/Sequel Pro
+21. iterm2/mobaxterm 终端
 
 Synergy 键盘共享(全平台)
 bittorrent-sync 点对点同步
 
 ios(软件)
 prompt; ssh
+fing
 android(软件)
 airdroid; 无线连接
 zanti; mimt

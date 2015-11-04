@@ -40,7 +40,11 @@
 ####更友好的显示当前挂载的文件系统
     mount |column -t
 
-
+####远程复制
+    scp /home/adminuser/landing.gz leon@69.61.83.181:/home/leon
+    scp -r /home/adminuser/landing/ leon@69.61.83.181:/home/leon/landing/ # 复制文件夹
+####rsync(建议使用)
+    rsync -avzP --progress  -r -e ssh /home/adminuser/landing root@69.61.83.187:/root/land
 ####测试磁盘读写速度
     dd bs=1M count=128 if=/dev/zero of=./largefile conv=fdatasync
 ####查看文件大小
