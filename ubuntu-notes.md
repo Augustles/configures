@@ -51,7 +51,7 @@
 	sudo apt-get install eog
 #### w3m, ranger
 
-#### 程序启动器Synapse
+#### 程序启动器Synapse gnome do
 
 #### Remmina(ftp,rdp,ssh,vnc)
 #### 自启动ssh
