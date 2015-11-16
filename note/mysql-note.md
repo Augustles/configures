@@ -25,7 +25,7 @@
 #### alter table user_t modify password char(20);  修改password字段属性
 #### alter table user_t_t alter password set default '123456';  修改字段默认值,默认值注意字符串
 #### alter talbe user_t_t type =myisam;  修改user_t_t表类型为myisam???
-#### alter table user_t add primary key(password);  添加主键, 主键是一个特殊的索引
+#### alter table user_t add primary key(password);  添加主键, 主键是一个特殊的索引, primary key不可重复
 #### alter table user_t drop primary key;  删除主键
 #### alter table user_t add index index_name(name);  添加索引,索引可以大大加快MySQL的检索速度
 #### alter table user_t drop index name;  删除索引
@@ -43,7 +43,8 @@
 
 #### select * from douban into outfile '/tmp/out.csv' fields terminated by ',' optionally enclosed by '"' escaped by '"' lines terminated by '\r\n'; 导出csv文件
 
-
+#### select count(*) from amazon; 计算记录条数
+#### select * from amazon limit 5;
 
 
 #### select version(); mysql版本信息
