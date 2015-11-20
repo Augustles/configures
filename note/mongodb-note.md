@@ -7,3 +7,5 @@
 ####show collections; 显示所有集合
 ####db.rpdb.find().limit(1); 显示一个文档
 ####db.rpdb.find.count(); 计算文档条数
+
+mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv 
