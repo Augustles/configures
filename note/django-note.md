@@ -20,7 +20,7 @@ tutorial3
 
 
 tips:
-1.pythonmanage.pyshell;进入django交互shell
+1.python manage.pyshell;进入django交互shell
 from ask.models import Ask
 Ask.objects.all()
 django的调度逻辑图
