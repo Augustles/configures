@@ -1,5 +1,4 @@
-
-# root
+# root ubuntu14.04
 sudo apt-get update
 sudo apt-get -y install zsh vim git python python-pip wget curl
 sudo apt-get -y install python-dev
