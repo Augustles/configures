@@ -1,4 +1,4 @@
-# root ubuntu14.04
+# root ubuntu14.04 scrapy
 sudo apt-get update
 sudo apt-get -y install zsh vim git python python-pip wget curl
 sudo apt-get -y install python-dev
@@ -8,3 +8,13 @@ sudo apt-get install -y build-essential autoconf libtool pkg-config python-openg
 sudo pip install scrapy
 sudo pip install pyOpenSSL==0.13
 sudo pip install beautisoupful4
+# check scrapy
+# mongo
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+#check mongo 进程
+ps -aux | grep mongo
+# 检查mongo端口
+# netstat -nlt | grep 27017
