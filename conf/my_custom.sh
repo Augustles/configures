@@ -19,3 +19,7 @@ sudo apt-get install -y mongodb-org
 ps -aux | grep mongo
 # 检查mongo端口
 # netstat -nlt | grep 27017
+# redis-server
+sudo apt-get install -y redis-server
+# 修改密码 修改redis.conf文件配置
+# vi /etc/redis/redis.conf
