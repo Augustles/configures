@@ -8,4 +8,8 @@
 ####db.rpdb.find().limit(1); 显示一个文档
 ####db.rpdb.find.count(); 计算文档条数
 
+####use DATABASE_NAME =>新建数据库
+####db.dropDatabase() =>删除数据库
+####db.col.insert() =>插入新记录
+####db.col.remove() =>删除记录
 mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv 
