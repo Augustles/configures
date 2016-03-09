@@ -12,4 +12,6 @@
 ####db.dropDatabase() =>删除数据库
 ####db.col.insert() =>插入新记录
 ####db.col.remove() =>删除记录
+####db.user.ensureIndex({"tpid":1},{"unique":true}); =>添加唯一索引
+####db.system.indexes.find() =>查看索引
 mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv 
