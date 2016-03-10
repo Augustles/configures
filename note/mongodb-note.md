@@ -10,6 +10,7 @@
 
 ####use DATABASE_NAME =>新建数据库
 ####db.dropDatabase() =>删除数据库
+####db.createCollection('stats', options) =>创建集合
 ####db.col.insert() =>插入新记录
 ####db.col.remove() =>删除记录
 ####db.col.remove({}) =>删除所有collection
