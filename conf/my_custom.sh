@@ -8,6 +8,7 @@ sudo apt-get install -y build-essential autoconf libtool pkg-config python-openg
 sudo pip install scrapy
 sudo pip install pyOpenSSL==0.13
 sudo pip install beautisoupful4
+sudo pip install fabric
 # check scrapy
 scrapy -h
 # mongo
