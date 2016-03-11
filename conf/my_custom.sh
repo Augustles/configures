@@ -23,3 +23,5 @@ ps -aux | grep mongo
 sudo apt-get install -y redis-server
 # 修改密码 修改redis.conf文件配置
 # vi /etc/redis/redis.conf
+# supervisor, web, dir设定
+sudo apt-get install -y supervisor
