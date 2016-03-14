@@ -26,3 +26,6 @@ sudo apt-get install -y redis-server
 # vi /etc/redis/redis.conf
 # supervisor, web, dir设定
 sudo apt-get install -y supervisor
+# Graphite http://www.vpsee.com/2012/05/install-graphite-on-ubuntu-12-04/
+sudo apt-get install apache2 libapache2-mod-wsgi python-django \
+python-twisted python-cairo python-pip python-django-tagging
