@@ -15,5 +15,8 @@
 ####db.col.remove() =>删除记录
 ####db.col.remove({}) =>删除所有collection
 ####db.user.ensureIndex({"tpid":1},{"unique":true}); =>添加唯一索引
+####db.all.ensureIndex({'postuser'}) =>添加单索引
+####db.all.ensureIndex({"topicurl" : 1, "postfloor" : 1}) =>添加组合索引
+####db.Metadata.CreateIndex(new Document { { "UserId", 1 }, { "UserName", -1 } }, false);
 ####db.system.indexes.find() =>查看索引
 mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv 
