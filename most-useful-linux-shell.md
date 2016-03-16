@@ -68,3 +68,11 @@
 ####替换文本, 批量替换
     sed 's/Line/line/g' file.txt # 加-i才会修改文件
     sed 's/12/abc/s' `grep 12 -rl /dir` # -i就地修改
+####kill kilall pkill
+    ps aux |grep uwsgi
+    kill pid
+    kill -9 pi # 删除僵尸进程
+    killall uwsgi # 直接删进程名
+    pkill uwsgi # 同, 删单个进程用kill
+    pgrep -l uwsgi # 获得详细进程pid
+    xkill # 杀死桌面程序
