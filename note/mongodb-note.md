@@ -27,6 +27,7 @@
 ####db.user.ensureIndex({"tpid":1},{"unique":true}); =>添加唯一索引
 ####db.Metadata.CreateIndex(new Document { { "UserId", 1 }, { "UserName", -1 } }, false);
 ####db.system.indexes.find() =>查看索引
+####all.update({'_id': tid}, {'$rename': {"postmain": "content"}}) =>修改字段名
 ####导出csv
 mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv
 ####mongodump 备份
