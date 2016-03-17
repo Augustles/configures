@@ -27,4 +27,9 @@
 ####db.user.ensureIndex({"tpid":1},{"unique":true}); =>添加唯一索引
 ####db.Metadata.CreateIndex(new Document { { "UserId", 1 }, { "UserName", -1 } }, false);
 ####db.system.indexes.find() =>查看索引
+####导出csv
 mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv
+####mongodump 备份
+  mongodump -h 127.0.0.1 -d zolbbs -c all -o /root/mongobackup/
+####mongorestore 还原
+  mongorestore -d newzolbb -c newall /root/mongobackup/zolbbs/all.bson
