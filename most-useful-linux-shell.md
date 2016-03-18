@@ -76,3 +76,5 @@
     pkill uwsgi # 同, 删单个进程用kill
     pgrep -l uwsgi # 获得详细进程pid
     xkill # 杀死桌面程序
+####开机启动
+    sudo vi /etc/rc.loacl >> /etc/init.d/ssh start
