@@ -1,6 +1,9 @@
 ##分布式爬虫scrap-redis
 ####scrapy
 sudo pip install scrapy
+#####bloomfilter url去重 http://xiaorui.cc/2014/09/14/%E4%BD%BF%E7%94%A8bloomfilter%E5%AE%9E%E7%8E%B0%E4%BA%BF%E7%BA%A7%E5%88%AB%E7%88%AC%E8%99%ABurl%E9%93%BE%E6%8E%A5%E5%8E%BB%E9%87%8D%E5%AF%B9%E6%AF%94/
+sudo pip install pybloomfiltermmap
+
 
 
 
