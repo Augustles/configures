@@ -1,4 +1,4 @@
-# openstack nova配置
+# openstack http://fosskb.in/2015/04/18/installing-openstack-kilo-on-ubuntu-15-04-single-machine-setup/
 ####配置网络
     sudo apt-get install bridge-utils
 ####安装配置ntp
@@ -11,3 +11,12 @@
     sudo apt-get install rabbitmq-server nova-common nova-doc python-nova nova-api nova-network nova-volume nova-objectstore nova-scheduler nova-compute
     sudo apt-get install -y euca2ools
     sudo apt-get install -y unzip
+####keystone验证
+    apt-get install -y keystone
+    mysql -u root -p
+    CREATE DATABASE keystone;
+    GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'keystone_dbpass';
+#####/etc/keystone/keystone.conf
+    connection = mysql://keystone:keystone_dbpass@0.0.0.0/keystone
+    service keystone restart
+    keystone-manage db_sync
