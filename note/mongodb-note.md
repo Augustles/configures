@@ -35,3 +35,24 @@ mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2
   mongodump -h 127.0.0.1 -d zolbbs -c all -o /root/mongobackup/
 ####mongorestore 还原
   mongorestore -d newzolbb -c newall /root/mongobackup/zolbbs/all.bson
+####去重
+  db.alist.aggregate(
+            [
+                  {
+                        $group:{
+                              _id: {url: "$url", uri_doc_indexs: "$uri_doc_indexs"},
+                              name: {$push: "$url"},
+                              uri_doc_indexs: {$push: "$uri_doc_indexs"},
+                              out: {$push: "$out"}
+                        }
+                  }
+            ]
+        ). forEach(function(x){
+            db.temp.insert(
+                  {
+                    url: x.url,
+                    uri_doc_indexs : x.uri_doc_indexs,
+                    out: x.out,
+                  }
+            );
+        });
