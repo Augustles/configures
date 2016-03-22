@@ -1,4 +1,7 @@
-# openstack http://fosskb.in/2015/04/18/installing-openstack-kilo-on-ubuntu-15-04-single-machine-setup/
+# openstack 
+#####http://fosskb.in/2015/04/18/installing-openstack-kilo-on-ubuntu-15-04-single-machine-setup/
+#####http://openstack-cloud-mylearning.blogspot.com/2015/02/openstack-juno-devstack-installation.html
+#####http://www.chenshake.com/install-ubuntu-14-04-devstack/
 ####配置网络
     sudo apt-get install bridge-utils
 ####安装配置ntp
