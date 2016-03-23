@@ -3,6 +3,7 @@
 #####http://openstack-cloud-mylearning.blogspot.com/2015/02/openstack-juno-devstack-installation.html
 #####http://www.chenshake.com/install-ubuntu-14-04-devstack/
 #####http://chianingwang.blogspot.com/2014/11/how-to-install-openstack-juno-on.html
+#####http://samuraiincloud.com/2014/08/13/building-openstack-icehouse-in-virtualbox-in-60-minutes-using-mirantis-fuel-2/
 ####配置网络
     sudo apt-get install bridge-utils
 ####安装配置ntp
