@@ -19,7 +19,7 @@
 17. open/xdg-open
 18. git 版本控制
 19. beyond compare 文本比较
-20. heidisql/Sequel Pro
+20. heidisql/Sequel Pro mysql客户端
 21. iterm2/mobaxterm 终端
 
 Synergy 键盘共享(全平台)
