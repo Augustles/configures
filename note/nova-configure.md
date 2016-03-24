@@ -9,7 +9,7 @@
 ####安装配置ntp
     sudo apt-get install ntp
 ####安装mysql
-    sudo apt-get install mysql-server
+    sudo apt-get install mysql-server python-mysqldb
 ####安装glances
     sudo apt-get install glance
     glance image-list
