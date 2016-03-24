@@ -22,13 +22,6 @@
 20. heidisql/Sequel Pro mysql客户端
 21. iterm2/mobaxterm 终端
 
-####机器学习
-nltk 自然语言处理
-scipy 算法库和数学工具包
-NumPy 几乎是一个无法回避的科学计算工具包，最常用的也许是它的N维数组对象，其他还包括一些成熟的函数库，用于整合C/C++和Fortran代码的工具包，线性代数、傅里叶变换和随机数生成函数等。NumPy提供了两种基本的对象：ndarray（N-dimensional array object）和 ufunc（universal function object）。ndarray是存储单一数据类型的多维数组，而ufunc则是能够对数组进行处理的函数。
-Matplotlib python最著名的绘图库，它提供了一整套和matlab相似的命令API
-scikit-learn 主要涵盖分类，回归和聚类算法，例如SVM， 逻辑回归，朴素贝叶斯，随机森林，k-means等算法,我们熟悉的NLTK中，分类器方面就有专门针对scikit-learn的接口，可以调用scikit-learn的分类算法以及训练数据来训练分类器模型
-
 
 Synergy 键盘共享(全平台)
 bittorrent-sync 点对点同步
