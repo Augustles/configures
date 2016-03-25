@@ -56,3 +56,4 @@ mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2
                   }
             );
         });
+####db.col.drop()删除集合
