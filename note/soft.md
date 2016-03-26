@@ -21,6 +21,7 @@
 19. beyond compare 文本比较
 20. heidisql/Sequel Pro mysql客户端
 21. iterm2/mobaxterm 终端
+22. easybcd/ultraiso 系统安装
 
 
 Synergy 键盘共享(全平台)
