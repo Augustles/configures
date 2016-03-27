@@ -7,7 +7,7 @@
 5. ssh/telnet远程登录
 6. sftp/ftp/filezilla ftp文件管理
 7. rsync/cwrsync同步文件
-8. parallels desktop/virtualbox(桥接模式)虚拟机
+8. parallels desktop/virtualbox(桥接模式&&端口转发)虚拟机
 9. alfred/Synapse/listary启动器
 10. homebrew/apt-get包管理
 11. dash/velocity文档管理
