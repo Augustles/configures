@@ -16,16 +16,21 @@
 ####$exists 存在某个属性
 ####db.rpdb.find.count(); 计算文档条数
 
+####vi /etc/mongodb.conf 加上auth=true =>添加验证
+####修改blind_ip 0.0.0.0 =>外网访问
+####use admin; db.addUser('admin', '123456') =>添加密码
+####use admin; db.shutdownServer() =>关闭mongod
+####mongod --config /etc/mongodb.conf =>启动mongod
 ####use DATABASE_NAME =>新建数据库
 ####db.dropDatabase() =>删除数据库
 ####db.createCollection('stats', options) =>创建集合
+####db.col.drop() =>删除集合
 ####db.col.insert() =>插入新记录
 ####db.col.remove() =>删除记录
 ####db.col.remove({}) =>删除所有collection
 ####db.all.ensureIndex({'postuser'}) =>添加单索引
 ####db.all.ensureIndex({"topicurl" : 1, "postfloor" : 1}) =>添加组合索引
 ####db.user.ensureIndex({"tpid":1},{"unique":true}); =>添加唯一索引
-####db.Metadata.CreateIndex(new Document { { "UserId", 1 }, { "UserName", -1 } }, false);
 ####db.system.indexes.find() =>查看索引
 ####all.update({'_id': tid}, {'$rename': {"postmain": "content"}}) =>修改字段名
 ####db.all.update({},{$unset:{"posttime":""}},{multi:true}) =>删除字段pymono暂时没有成功
@@ -56,4 +61,4 @@ mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2
                   }
             );
         });
-####db.col.drop()删除集合
+
