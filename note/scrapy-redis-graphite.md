@@ -10,14 +10,17 @@
 ####scrapyjs
 ######安装docker
 * curl -fsSL https://get.docker.com/ | sh
+
 ######image
 * docker pull scrapinghub/splash
 * docker run -p 5023:5023 -d -p 8050:8050 --name=splash_server  -p 8051:8051 scrapinghub/splash
+
 ####graphite(画图工具)搭建, whisper数据库, carbon守护进程(缓存数据)
 * sudo pip install https://github.com/graphite-project/ceres/tarball/master
 * sudo pip install whisper
 * sudo pip install carbon
 * sudo pip install graphite-web
+
 #####启动一个carbon-cache进程
 * cd /opt/graphite/conf
 * sudo cp aggregation-rules.conf.example aggregation-rules.conf
