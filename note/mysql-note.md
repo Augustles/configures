@@ -1,5 +1,7 @@
 ##mysql note
 
+###pip install sqlalchemy
+* https://www.keakon.net/2012/12/03/SQLAlchemy%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C
 #### show databases; 查询存在数据库
 #### create database august; 创建数据库, CREATE DATABASE august DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 #### drop database august; 删除数据库
