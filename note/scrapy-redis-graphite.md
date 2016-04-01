@@ -1,6 +1,7 @@
 ##分布式爬虫scrap-redis
 ####scrapy
 * sudo pip install scrapy
+
 #####bloomfilter url去重 http://xiaorui.cc/2014/09/14/%E4%BD%BF%E7%94%A8bloomfilter%E5%AE%9E%E7%8E%B0%E4%BA%BF%E7%BA%A7%E5%88%AB%E7%88%AC%E8%99%ABurl%E9%93%BE%E6%8E%A5%E5%8E%BB%E9%87%8D%E5%AF%B9%E6%AF%94/
 * sudo pip install pybloomfiltermmap
 
@@ -8,6 +9,24 @@
 
 
 ####scrapyjs
+
+######splash
+* git clone https://github.com/scrapinghub/splash/
+######sip, pyqt5
+* wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.17/sip-4.17.tar.gz
+* tar -xzvf sip-4.17.tar.gz
+* cd sip-4.17
+* python configure.py
+* sudo make
+* sudo make install
+* sip -V
+* wget http://120.52.72.57/iweb.dl.sourceforge.net/c3pr90ntcsf0/project/pyqt/PyQt5/PyQt-5.5.1/PyQt-gpl-5.5.1.tar.gz
+* tar -xzvf PyQt-gpl-5.5.1.tar.gz
+* cd PyQt-gpl-5.5.1
+* python configure.py
+* sudo make
+* sudo make install
+
 ######安装docker
 * curl -fsSL https://get.docker.com/ | sh
 
