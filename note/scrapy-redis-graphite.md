@@ -6,7 +6,15 @@
 * sudo pip install pybloomfiltermmap
 
 
-
+####phantomjs
+* pip install selenium
+* sudo apt-get install phantomjs
+* from selenium import webdriver
+* service_args = [
+    '--load-images=false',
+    '--disk-cache=true',
+    ]
+* driver = webdriver.PhantomJS(service_args=service_args)
 
 ####scrapyjs
 
