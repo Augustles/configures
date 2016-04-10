@@ -21,6 +21,12 @@
 19. beyond compare 文本比较
 20. heidisql/Sequel Pro
 21. iterm2/mobaxterm 终端
+## 爬虫
+1. phantomjs
+2. casperjs npm install -g casperjs
+3. apt-get/aptitude
+4. windowtousb/hdd
+
 
 Synergy 键盘共享(全平台)
 bittorrent-sync 点对点同步

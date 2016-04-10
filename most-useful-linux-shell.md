@@ -60,6 +60,7 @@
     :%!xxd
 ####查找文本里内容, -s屏蔽没有找到grep
     find . |xargs grep 'sda' -s
+    grep -rl 123 .
 ####查找并删除某个后缀文件
     find . -iname '*.torrent' |xargs rm
     ls|xargs rm
@@ -68,3 +69,7 @@
 ####替换文本, 批量替换
     sed 's/Line/line/g' file.txt # 加-i才会修改文件
     sed 's/12/abc/s' `grep 12 -rl /dir` # -i就地修改
+####读取某行
+    sed -n '6p' file.txt # 读取第六行
+    sed '3d' file.txt # 删除第三行
+    sed '$d' file.txt # 删除最后一行
