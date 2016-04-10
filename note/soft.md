@@ -7,7 +7,7 @@
 5. ssh/telnet远程登录
 6. sftp/ftp/filezilla ftp文件管理
 7. rsync/cwrsync同步文件
-8. parallels desktop/virtualbox(桥接模式)虚拟机
+8. parallels desktop/virtualbox(桥接模式&&端口转发)虚拟机
 9. alfred/Synapse/listary启动器
 10. homebrew/apt-get包管理
 11. dash/velocity文档管理
@@ -19,13 +19,18 @@
 17. open/xdg-open
 18. git 版本控制
 19. beyond compare 文本比较
-20. heidisql/Sequel Pro
+20. heidisql/Sequel Pro mysql客户端
 21. iterm2/mobaxterm 终端
+<<<<<<< HEAD
 ## 爬虫
 1. phantomjs
 2. casperjs npm install -g casperjs
 3. apt-get/aptitude
 4. windowtousb/hdd
+=======
+22. easybcd/ultraiso 系统安装
+23. screen/tmux 切换session
+>>>>>>> 1774ead207743ee25e61b5333a28dd1836b07c27
 
 
 Synergy 键盘共享(全平台)
