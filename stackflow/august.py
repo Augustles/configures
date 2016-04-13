@@ -8,8 +8,9 @@ from scrapy.http.cookies import CookieJar
 
 # from scrapy_webdriver.http import WebdriverRequest
 
-# scrapy 验证码&&登陆 爬取 Request
-
+# scrapy 验证码&&登陆 爬取 Request, webdriver 传递cookie
+# scrapy的Request传递cookie只需要在settings设定即可
+# webdriver需注意cookie获取格式与报错
 
 class AugustSpider(scrapy.spiders.Spider):
     name = "august"
@@ -71,34 +72,45 @@ class AugustSpider(scrapy.spiders.Spider):
                             )]
 
     def after_login(self, response):
-        cookie = response.headers.items()[1][1:][0]  # 字符串
+        # 这里直接用value会丢失重要的cookie
+        cookie = response.headers.items()[1][1:][0]  # list
         print(red(cookie))
-        print(red(response.headers))
-        from scrapy.shell import inspect_response
-        inspect_response(response, self)
-        # print(red(CookieJar.extract_cookies()))
-        cookies = {}
-        for x in cookie.split(';'):
-            x = x.split('=')
-            cookies[x[0].strip()] = x[1].strip()
+        # 向phantomjs传递cookie时要注意cookie格式和报错
+        from selenium import webdriver
+        dr = webdriver.PhantomJS()
+        # pip install mozmill
+        # 也可以用firefox登录
+        # dr = webdriver.Firefox()
+        cookies = []
+        # 这里cookie格式要注意
+        tmp = {u'domain': u'www.51yyto.com',
+                      u'name': '',
+                      u'httpOnly': False,
+                      u'name': u'ushell',
+                      u'path': u'/',
+                      u'secure': False,
+                      u'value': ''}
 
-        print type(cookies), red(cookies)
-        # del cookies['path']
-        # print red(1111), response.headers
+        for x in cookie:
+            if 'uid' or 'ushell' in x:
+                uid = x.split('=')
+                # cookies[uid[0]] = uid[1].split(';')[0]
+                tmp[u'name'] = uid[0]
+                tmp[u'value'] = uid[1].split(';')[0]
+                print(red(tmp))
+                try:
+                    # 这里Phantomjs会有一个报错issue
+                    # 这里需要带cookie爬取
+                    dr.add_cookie(tmp)
+                except:
+                    pass
         if u'成功' in bs(response.body_as_unicode()).title.get_text():
             print(green('Success!'))
             print(green(response.meta))
-            from selenium import webdriver
-            dr = webdriver.PhantomJS()
-
             for url in self.start_urls:
-                # 这里需要带cookie爬取
-                print(red(url))
-                dr.get(url)
-                # dr.clearcookies()
+                # 检查cookie
                 print(red(dr.get_cookies()))
-                dr.add_cookie(cookies)
-                print(red(1111))
+                dr.get(url)
                 soup = bs(dr.page_source)
                 name = soup.find(
                     'span', attrs={'class': 'M-name-txt blue mlr5'}).get_text()

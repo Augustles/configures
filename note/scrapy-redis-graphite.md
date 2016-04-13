@@ -64,3 +64,10 @@
 * sudo pip install pytz
 * vi /opt/graphite/webapp/graphite/local_settings.py
 * TIME_ZONE = 'Asia/Shanghai'
+
+####爬取
+* [Amazon](http://www.amazon.com/)
+* [zol论坛](http://bbs.zol.com.cn/)(htmlib5)
+* [豆瓣](https://www.douban.com/)
+* [知乎](http://www.zhihu.com/)(login)
+* [watch](http://www.watchforfun.net/)(js)
