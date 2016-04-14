@@ -15,7 +15,8 @@
     '--disk-cache=true',
     ]
 * driver = webdriver.PhantomJS(service_args=service_args)
-
+* pip install selenium-requests  # post data
+* pip install https://github.com/sosign/scrapy-webdriver/archive/master.zip scrapy-webdriver(scrapy&&selenium)
 ####scrapyjs
 
 ######splash
