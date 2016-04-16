@@ -1,6 +1,19 @@
 
 # mongodb manual
 
+# mongodb 3 验证
+# 配置 security: authorization: enabled
+# 添加用户 userAdminAnyDatabase
+db.createUser(
+  {
+    user: "admin",
+    pwd: "nana",
+    roles: [ { role: "readWrite", db: "nbbs" },  { role: "readWrite", db: "watch" },  { role: "readWrite", db: "newzolbb" }]
+  }
+)
+# dbinfo = 'mongodb://admin:nana@192.168.1.102/nbbs?authMechanism=SCRAM-SHA-1'
+db = MongoClient(dbinfo).nbbs.nzol
+
 ####from bson.objectid import ObjectId; ObjectId(s)
 ####show dbs; 显示所有数据库 =>show databases =>.databases
 ####db; 显示当前数据库对象或集合 =>show tables =>.tables
