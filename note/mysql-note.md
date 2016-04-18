@@ -31,6 +31,7 @@
 #### alter table user_t drop primary key;  删除主键
 #### alter table user_t add index index_name(name);  添加索引,索引可以大大加快MySQL的检索速度
 #### alter table user_t drop index name;  删除索引
+#### alter table user add nuique index(download_uri,uri_doc_index); 添加组合唯一索引
 #### show index from user_t;  查看索引,主键
 #### show create table user_t;  显示完整的user_t表结构
 
@@ -77,8 +78,8 @@ CREATE TABLE `douban` (
 
 python manage.py schemamigration youappname --initial
 
-# --initial在数据库创建models定义的表，以及South需要的south_migrationhistory表，另外会在youappname目录下面创建一个migrations的子目录   
-#以后每次对models更改后，可以运行以下两条命令同步到数据库   
+# --initial在数据库创建models定义的表，以及South需要的south_migrationhistory表，另外会在youappname目录下面创建一个migrations的子目录
+#以后每次对models更改后，可以运行以下两条命令同步到数据库
 python manage.py schemamigration youappname --auto     #检测对models的更改
 
 python manage.py migrate youappnam  #将更改反应到数据库

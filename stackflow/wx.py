@@ -43,27 +43,6 @@ def update_cookies():
 # print Cookie
 
 
-url = 'http://weixin.sogou.com/weixin?type=2&query=%E5%A6%82%E6%9E%9C%E5%A3%B0%E9%9F%B3%E4%BC%9A%E8%AE%B0%E5%BE%97&ie=utf8&_sug_=n&_sug_type_='
-
-
-def l():
-    c = update_cookies()
-    while True:
-        if 'SNUID=1' not in c:
-            c = update_cookies()
-        else:
-            break
-    print c
-
-    headers['Cookie'] = c
-    print(red(c))
-    r = requests.get(url, headers=headers)
-    soup = bs(r.content)
-    print(green(soup.title))
-
-# l()
-
-
 def main():
     preUrl = 'http://weixin.sogou.com/antispider/util/seccode.php?tc={}'.format(
         int(time.time()))
@@ -94,9 +73,22 @@ def main():
         SNUID = soup['id']
         print(green('Sucess! SNUID ==> {0}'.format(SNUID)))
     url = 'http://weixin.sogou.com/' + t
+    # c = update_cookies()
+    cc = {'name': 'SNUID', 'value': SNUID,
+          'domain': '.sogou.com', 'path': '/'}
+    ss.cookies.set(**cc)
+    print(red(ss.cookies))
     print url
-    r = requests.get(url, cookies={'SNUID': SNUID})
-    print(red(r.headers))
-    soup = bs(r.content)
+    from selenium import webdriver
+    dr = webdriver.PhantomJS()
+    try:
+        dr.add_cookie(cc)
+    except Exception as e:
+        print(red(e))
+    dr.get(url)
+    print(red(dr.get_cookies()))
+    soup = bs(dr.page_source)
+    # info = soup.find('div', attrs={'class': 'results'}).find_all('div', attrs={'id': True, 'class': True, 'd': True})
+    # print(red(len(info)))
     print(green(soup.title))
 main()

@@ -21,16 +21,16 @@
 19. beyond compare 文本比较
 20. heidisql/Sequel Pro mysql客户端
 21. iterm2/mobaxterm 终端
-<<<<<<< HEAD
+22. easybcd/ultraiso 系统安装
+23. screen/tmux 切换session
+24. fiddler/charles/wireshark/scapy 抓包
 ## 爬虫
 1. phantomjs
 2. casperjs npm install -g casperjs
 3. apt-get/aptitude
 4. windowtousb/hdd
 =======
-22. easybcd/ultraiso 系统安装
-23. screen/tmux 切换session
->>>>>>> 1774ead207743ee25e61b5333a28dd1836b07c27
+
 
 
 Synergy 键盘共享(全平台)
