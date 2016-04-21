@@ -27,29 +27,9 @@ from gevent import monkey
 monkey.patch_all()
 from gevent.pool import Pool, Group
 
-# db_config = {
-#     'host': '127.0.0.1:3310',
-#     'user': 'root',
-#     'passwd': 'wslwsl',
-#     'db': 'kmatrix',
-#     'charset': 'utf8'
-# }
-db_config = 'mysql://root:nana@127.0.0.1:3306/kmatrix?charset=utf8'
-engine = create_engine(db_config)
-# , echo=True
-# 连接数据表
-metadata = MetaData(engine)
-tb_data_source = Table('tb_data_source', metadata, autoload=True)
-tb_data_source_group = Table('tb_data_source_group', metadata, autoload=True)
-tb_document = Table('tb_document', metadata, autoload=True)
-# 会话, 查询
-session = create_session()
-query = session.query(tb_document)
-query1 = session.query(tb_data_source_group)
-query2 = session.query(tb_data_source)
 
-conn = pymysql.connect(host='192.168.2.193', port=3306,
-                       user='august', passwd='nana', db='kmatrix', charset='utf8')
+conn = pymysql.connect(host='127.0.0.1', port=3309,
+                       user='root', passwd='wslwsl', db='kmatrix', charset='utf8')
 
 nzol = nbbs.find({'uri_doc_index': 0}).batch_size(61)
 
@@ -130,12 +110,13 @@ def to_mysql(nzol):
                             # print(red(doc_id))
                             t1 = nbbs.find({'download_uri': url, 'uri_doc_index': {
                                 '$gt': mli}}).sort('uri_doc_index', 1)
+                            if t1[0]['uri_doc_index'] - 1 == mli:
+                                pass
+                            else:
+                                raise Exception('Not compare')
+
                             for y in t1:
                                 # 判断时候是连续楼层
-                                if (y['uri_doc_index'] - 1 == mli):
-                                    pass
-                                else:
-                                    raise Exception
                                 ck = [x for x in range(1, 5000, 20)]
                                 # 检查title, [1, 21, 41]
                                 if y['uri_doc_index'] in ck:
@@ -170,12 +151,13 @@ def to_mysql(nzol):
                             # print(red(doc_id))
                             t1 = nbbs.find({'download_uri': url, 'uri_doc_index': {
                                 '$gt': mli}}).sort('uri_doc_index', 1)
+                            if t1[0]['uri_doc_index'] - 1 == mli:
+                                pass
+                            else:
+                                raise Exception('Not compare')
+
                             for y in t1:
                                 # 判断时候是连续楼层
-                                if (y['uri_doc_index'] - 1 == mli) or (mli == 0):
-                                    pass
-                                else:
-                                    raise Exception
                                 ck = [x for x in range(1, 5000, 20)]
                                 # 检查title, [1, 21, 41]
                                 if y['uri_doc_index'] in ck:
