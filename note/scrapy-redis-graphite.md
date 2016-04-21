@@ -17,6 +17,51 @@
 * driver = webdriver.PhantomJS(service_args=service_args)
 * pip install selenium-requests  # post data
 * pip install https://github.com/sosign/scrapy-webdriver/archive/master.zip scrapy-webdriver(scrapy&&selenium)
+
+####验证码识别tesseract
+1. 读取图片
+2. 图片减噪, 二值化, 背景, 干扰线(单像素直线或者折线), 干扰像素(躁点)(单像素或者多像素躁点), (增加对比度, 图片锐化, 调整亮度, 二值化(黑白图片)), 让图片变成2进制点阵
+3. 图片切割(横向或者纵向切割)
+4. 图像文本输出
+
+## http://blog.csdn.net/shadow67/article/details/50680228
+
+####pwntcha
+* sudo apt-get install python-opencv -y
+* sudo apt-get install libsdl1.2-dev libsdl1.2debian -y
+* sudo apt-get install libsdl1.2-dev -y
+* sudo apt-get install libsdl-image1.2-dev -y
+* sudo apt-get install libsdl-mixer1.2-dev -y
+* sudo apt-get install libsdl-ttf2.0-dev -y
+* sudo apt-get install libsdl-gfx1.2-dev -y
+* sudo apt-get install libimlib2 -y
+* sudo apt-get install libimlib2-dev -y
+
+
+* sudo apt-get install libsdl2-2.0-0 -y
+* sudo apt-get install libsdl2-dev -y
+* wget https://www.libsdl.org/release/SDL2-2.0.4.tar.gz
+* wget https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.1.tar.gz
+
+* git clone https://github.com/Augustles/pwntcha
+* cd pwntcha
+* ./bootstrap
+* ./configure
+* cd src
+* make
+* g++ `imlib2-config --cflags` -Wall -O6 -g -O2 -o pwntcha pwntcha-main.o \
+pwntcha-filter.o pwntcha-font.o pwntcha-image.o pwntcha-easter-eggs.o \
+pwntcha-test.o authimage/libdecoder.a clubic/libdecoder.a java/libdecoder.a \
+linuxfr/libdecoder.a livejournal/libdecoder.a lmt/libdecoder.a paypal/libdecoder.a \
+phpbb/libdecoder.a scode/libdecoder.a slashdot/libdecoder.a \
+ticketmaster/libdecoder.a tickets/libdecoder.a vbulletin/libdecoder.a \
+xanga/libdecoder.a `imlib2-config --libs` -lImlib2
+* make
+* cd ..
+* ./configure --prefix=/usr CC='g++' CXX='g++' LIBS='-lSDL2 -lSDL2_image'
+* sudo make
+* sudo make install
+
 ####scrapyjs
 
 ######splash
@@ -69,6 +114,6 @@
 ####爬取
 * [Amazon](http://www.amazon.com/)
 * [zol论坛](http://bbs.zol.com.cn/)(htmlib5)
-* [豆瓣](https://www.douban.com/)
+* [豆瓣](https://www.douban.com/)(403)
 * [知乎](http://www.zhihu.com/)(login)
-* [watch](http://www.watchforfun.net/)(js)
+* [watch](http://www.watchforfun.net/)(js, ajax)
