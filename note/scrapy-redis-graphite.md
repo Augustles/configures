@@ -19,6 +19,7 @@
 * pip install https://github.com/sosign/scrapy-webdriver/archive/master.zip scrapy-webdriver(scrapy&&selenium)
 
 ####验证码识别tesseract
+####tesseract 训练
 1. 读取图片
 2. 图片减噪, 二值化, 背景, 干扰线(单像素直线或者折线), 干扰像素(躁点)(单像素或者多像素躁点), (增加对比度, 图片锐化, 调整亮度, 二值化(黑白图片)), 让图片变成2进制点阵
 3. 图片切割(横向或者纵向切割)
