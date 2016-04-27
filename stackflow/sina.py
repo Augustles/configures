@@ -290,8 +290,9 @@ def getframe(fname, strict=1):
                 frame[i, j] = (0, 0, 0)
     im = im.convert('L')
     im = removedot(im)
+    im.show()
     im = floodfillfilter(im, 4, 20)
-    # im.show()
+    im.show()
     return im
 
 

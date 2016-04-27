@@ -20,6 +20,9 @@
 
 ####验证码识别tesseract
 ####tesseract 训练
+####预处理
+* http://sineyuan.github.io/2016/01/06/python-captcha/
+* http://everet.org/captcha-recognition.html
 1. 读取图片
 2. 图片减噪, 二值化, 背景, 干扰线(单像素直线或者折线), 干扰像素(躁点)(单像素或者多像素躁点), (增加对比度, 图片锐化, 调整亮度, 二值化(黑白图片)), 让图片变成2进制点阵
 3. 图片切割(横向或者纵向切割)
