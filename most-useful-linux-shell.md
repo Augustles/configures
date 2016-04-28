@@ -88,3 +88,7 @@
 ####断点, 限速下载
     wget -c --limit-rate=300k url
 >>>>>>> 1774ead207743ee25e61b5333a28dd1836b07c27
+####查看性能指标
+    dstat -cdlmnpsy
+####查看网速(k)
+    iftop -i eth1 -B
