@@ -1,31 +1,49 @@
 # root ubuntu14.04 scrapy
-sudo apt-get update
-sudo apt-get -y install zsh vim git python python-pip wget curl
-sudo apt-get -y install python-dev
-sudo apt-get install -y libevent-dev libxml2-dev libxslt1-dev
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get -y install zsh vim git python wget curl
+sudo apt-get -y install python-dev python-setuptools
+sudo apt-get install -y libevent-dev libxml2-dev libxslt1-dev libffi-dev
 sudo apt-get install -y libssl-dev libcurl4-openssl-dev python-devs libffi-dev
-sudo apt-get install -y build-essential autoconf libtool pkg-config python-opengl python-imaging python-pyrex python-pyside.qtopengl idle-python2.7 qt4-dev-tools qt4-designer libqtgui4 libqtcore4 libqt4-xml libqt4-test libqt4-script libqt4-network libqt4-dbus python-qt4 python-qt4-gl libgle3
-sudo pip install scrapy
-sudo pip install pyOpenSSL==0.13
-sudo pip install beautisoupful4
+sudo apt-get install -y build-essential autoconf libtool cmake pkg-config python-opengl python-imaging
+sudo apt-get install -y aptitude
+sudo easy_install pip
+sudo pip install virtualenv virtualenvwrapper
 sudo pip install fabric
+#sudo pip install scrapy
+#sudo pip install pyOpenSSL==0.13
+#sudo pip install beautisoupful4
+#sudo pip install fabric
+# pip
+source /usr/local/bin/virtualenvwrapper.sh
+mkvirtualenv env
+workon env
+pip install scrapy
+pip install cchardet
+pip install bs4
+pip install requests
+pip install html5lib
+pip install pymongo
+pip install pymysql
+pip install redis
+pip install scrapyjs
+pip install scrapy-splash
+# 安装docker
+
 # check scrapy
-scrapy -h
+#scrapy -h
 # mongo
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-sudo apt-get update
-sudo apt-get install -y mongodb-org
+sudo aptitude install mongodb
 #check mongo 进程
 ps -aux | grep mongo
 # 检查mongo端口
 # netstat -nlt | grep 27017
 # redis-server
-sudo apt-get install -y redis-server
+sudo aptitude install -y redis-server
 # 修改密码 修改redis.conf文件配置
 # vi /etc/redis/redis.conf
 # supervisor, web, dir设定
-sudo apt-get install -y supervisor
+sudo aptitude install -y supervisor
+sudo aptitude install mysql
 # Graphite http://www.vpsee.com/2012/05/install-graphite-on-ubuntu-12-04/
-sudo apt-get install apache2 libapache2-mod-wsgi python-django \
-python-twisted python-cairo python-pip python-django-tagging
+#sudo apt-get install apache2 libapache2-mod-wsgi python-django \
+#python-twisted python-cairo python-pip python-django-tagging
