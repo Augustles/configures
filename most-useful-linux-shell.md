@@ -92,3 +92,5 @@
     dstat -cdlmnpsy
 ####查看网速(k)
     iftop -i eth1 -B
+####启动docker
+    docker run -p 0.0.0.0:8050:8050 scrapinghub/splash
