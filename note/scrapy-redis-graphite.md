@@ -30,6 +30,9 @@
 
 ## http://blog.csdn.net/shadow67/article/details/50680228
 
+####神经网络 opencv, pybrain
+####http://46aae4d1e2371e4aa769798941cef698.devproxy.yunshipei.com/vvbbbbb/article/details/51154434
+
 ####pwntcha
 * sudo apt-get install python-opencv -y
 * sudo apt-get install libsdl1.2-dev libsdl1.2debian -y
