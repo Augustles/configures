@@ -39,21 +39,21 @@ for i, x in enumerate(range(200)):
 
 # 训练步骤
 # 1. 转化为tif格式
-# for x in os.listdir('.'):
-#     cmd = 'convert {0} -flatten -monochrome {1}.tif'.format(x, x[:-4])
-#     os.system(cmd)
+for x in os.listdir('.'):
+    cmd = 'convert {0} -flatten -monochrome {1}.tif'.format(x, x[:-4])
+    os.system(cmd)
 
 # 2. 合并tif
 cmd = 'tiffcp -c none *.tif target.tif'
 # os.system(cmd)
 # 3. 重命名
-# os.system('mv target.tif code.font.exp0.tif')
+os.system('mv target.tif code.font.exp0.tif')
 # 4. 生成box文件
-cmd = 'tesseract -psm 7 code.font.exp0.tif code.font.exp0 batch.nochop makebox'
+cmd = 'tesseract -psm 8 code.font.exp0.tif code.font.exp0 batch.nochop makebox'
 # os.system(cmd)
 # 5. 调整识别结果 jTessBoxEditor打开box文件, 对默认识别结果调整
 # 6. 从box文本中训练样本, 特征文件, 生成tr文件
-cmd = 'tesseract -psm 7 code.font.exp0.tif code.font.exp0 box.train'
+cmd = 'tesseract -psm 8 code.font.exp0.tif code.font.exp0 box.train'
 # os.system(cmd)
 # ubuntu12.04, ubuntu14.04默认没有装training tools
 # 聚集, 产生文字的原型

@@ -45,7 +45,7 @@ brew cask基于brew的mac封装机制
 	brew install macports
 	port install Synergy remmina/ubuntu
 	brew cask install the-unarchiver
-	 
+
 
 * alfred(launchy,synapse)（效率）+ iterm2（gow,Terminator）+ zsh(bash)+ vim(/usr/share/vim)(sublime,emacs) + EasyFind(everything) w3m(文字浏览器)+ReadKit(foxmail) pocket evernote nosleep burn(BurnAware Free刻录) moom(窗口管理)+MplayerX+vlc视频
 lanuchrocket memcached redis mongodb nginx mysql
@@ -67,7 +67,7 @@ chrome 插件，http://chrome-extension-downloader.com Any.do ,Evernote web clip
 
 #### zsh配置,字体Monaco for Powerline.otf
 	cat /etc/shells
-	chsh -s /bin/zsh	
+	chsh -s /bin/zsh
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 	export LC_ALL=en_US.UTF-8 export LANG=en_US.UTF-8
 
@@ -80,9 +80,9 @@ chrome 插件，http://chrome-extension-downloader.com Any.do ,Evernote web clip
 http://www.douban.com/group/topic/28027863/
 + 快捷键表 https://gist.github.com/lucasfais/1207002
 
-##### 访问远程共享  
+##### 访问远程共享
 在Windows中， 我们可以`Run "\\192.168.0.4"`  来访问其他机器共享的目录
 在Mac中，  先打开Finder,    command +K   打开共享目录 输入： `smb://192.168.0.4/share`
 
 #### mac 下mac adress修改
-	sudo ifconfig en0 ether `openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//‘`
+	sudo ifconfig en0 ether `openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'`

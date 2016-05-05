@@ -3,7 +3,8 @@
 ####激活无线网卡
      airmon-ng start wlan0 # 此时网卡名变为wlan0mon
      airmon-ng check kill # 如果报错
-     airodump-ng wlan0mon --wps # 显示有开启wps wifi
+     wash -i mon1 -P
+     airodump-ng wlan0mon -wps # 显示有开启wps wifi
 ####列出监听到的wifi
     wash -i wlan0mon -C
 ####获得wps pin

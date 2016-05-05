@@ -10,14 +10,6 @@
     sudo apt-get install ntp
 ####安装mysql
     sudo apt-get install mysql-server python-mysqldb
-####安装glances
-    sudo apt-get install glance
-    glance image-list
-####安装nova
-    sudo apt-get install rabbitmq-server nova-common nova-doc python-nova nova-api nova-network nova-volume nova-objectstore nova-scheduler nova-compute
-    sudo apt-get install -y euca2ools
-    sudo apt-get install -y unzip
-    nova list
 ####keystone验证
     apt-get install -y keystone
     mysql -u root -p
@@ -28,3 +20,13 @@
     service keystone restart
     keystone-manage db_sync
     ketystone user-list
+####安装glances
+    sudo apt-get install glance
+    glance image-list
+####安装nova
+    sudo apt-get install rabbitmq-server nova-common nova-doc python-nova nova-api nova-network nova-volume nova-objectstore nova-scheduler nova-compute
+    sudo apt-get install -y euca2ools
+    sudo apt-get install -y unzip
+    nova list
+
+
