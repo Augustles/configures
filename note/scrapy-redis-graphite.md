@@ -18,6 +18,14 @@
 * pip install selenium-requests  # post data
 * pip install https://github.com/sosign/scrapy-webdriver/archive/master.zip scrapy-webdriver(scrapy&&selenium)
 
+#### scrapy-splash pip install scrapy-splash
+#### splash configure https://github.com/scrapy-plugins/scrapy-splash
+#### install docker + splash
+    docker pull scrapinghub/splash
+
+#### start docker
+    docker run -p 0.0.0.0:8050:8050 scrapinghub/splash
+
 ####验证码识别tesseract
 ####tesseract 训练
 ####预处理
