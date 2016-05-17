@@ -4,7 +4,7 @@ sudo apt-get -y install zsh vim git python wget curl
 sudo apt-get -y install python-dev python-setuptools
 sudo apt-get install -y libevent-dev libxml2-dev libxslt1-dev libffi-dev
 sudo apt-get install -y libssl-dev libcurl4-openssl-dev python-devs libffi-dev
-sudo apt-get install -y build-essential autoconf libtool cmake pkg-config python-opengl python-imaging
+sudo apt-get install -y build-essential autoconf libtool cmake pkg-config python-opengl libjpeg8-dev
 sudo apt-get install -y aptitude
 sudo easy_install pip
 sudo pip install virtualenv virtualenvwrapper
