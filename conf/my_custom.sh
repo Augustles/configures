@@ -26,7 +26,7 @@ pip install pymongo
 pip install pymysql
 pip install redis
 pip install scrapyjs
-pip install scrapy-splash
+# pip install scrapy-splash
 # 安装docker
 
 # check scrapy
@@ -34,16 +34,16 @@ pip install scrapy-splash
 # mongo
 sudo aptitude install mongodb
 #check mongo 进程
-ps -aux | grep mongo
+#ps -aux | grep mongo
 # 检查mongo端口
 # netstat -nlt | grep 27017
 # redis-server
-sudo aptitude install -y redis-server
+#sudo aptitude install -y redis-server
 # 修改密码 修改redis.conf文件配置
 # vi /etc/redis/redis.conf
 # supervisor, web, dir设定
-sudo aptitude install -y supervisor
-sudo aptitude install mysql
+#sudo aptitude install -y supervisor
+#sudo aptitude install mysql
 # Graphite http://www.vpsee.com/2012/05/install-graphite-on-ubuntu-12-04/
 #sudo apt-get install apache2 libapache2-mod-wsgi python-django \
 #python-twisted python-cairo python-pip python-django-tagging
