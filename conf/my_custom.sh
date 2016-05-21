@@ -10,11 +10,12 @@ sudo easy_install pip
 sudo pip install virtualenv virtualenvwrapper
 sudo pip install fabric
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo apt-get install ctags build-essential cmake python-dev silversearcher-ag
+sudo pip install pyflakes pylint pep8
 cd ~
 git clone https://github.com/wklken/k-vim.git
 cd k-vim
-sudo apt-get install ctags build-essential cmake python-dev silversearcher-ag
-sudo pip install pyflakes pylint pep8
+sh install.sh
 #sudo pip install scrapy
 #sudo pip install pyOpenSSL==0.13
 #sudo pip install beautisoupful4
