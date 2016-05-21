@@ -21,7 +21,8 @@ sh install.sh
 #sudo pip install beautisoupful4
 #sudo pip install fabric
 # pip
-source /usr/local/bin/virtualenvwrapper.sh
+echo source /usr/local/bin/virtualenvwrapper.sh >> .zshrc
+zsh
 mkvirtualenv env
 workon env
 pip install scrapy
