@@ -1,0 +1,2 @@
+:imap <c-b> <Left>
+:imap <c-f> <Right>
