@@ -122,11 +122,12 @@ xanga/libdecoder.a `imlib2-config --libs` -lImlib2
 * sudo cp whitelist.conf.example whitelist.conf
 
 * python ../bin/carbon-cache.py start
-* sudo pip install pytz python-memcached
+* sudo pip install pytz
 * vi /opt/graphite/webapp/graphite/local_settings.py
 * TIME_ZONE = 'Asia/Shanghai'
+
 ####测试
-     sudo python /opt/graphite/examples/example-client.py
+    sudo python /opt/graphite/examples/example-client.py
 
 ####爬取
 * [Amazon](http://www.amazon.com/)
