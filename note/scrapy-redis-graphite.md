@@ -122,7 +122,7 @@ xanga/libdecoder.a `imlib2-config --libs` -lImlib2
 * sudo cp whitelist.conf.example whitelist.conf
 
 * python ../bin/carbon-cache.py start
-* sudo pip install pytz
+* sudo pip install pytz python-memcached
 * vi /opt/graphite/webapp/graphite/local_settings.py
 * TIME_ZONE = 'Asia/Shanghai'
 ####测试
