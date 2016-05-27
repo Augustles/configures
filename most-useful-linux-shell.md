@@ -93,3 +93,7 @@
     iftop -i eth1 -B
 ####启动docker
     docker run -p 0.0.0.0:8050:8050 scrapinghub/splash
+####shadows启动
+    nohup ssserver -s 0.0.0.0 -p 9008 -k august > log&
+####查看端口占用
+    netstat -tunlp |grep 9008
