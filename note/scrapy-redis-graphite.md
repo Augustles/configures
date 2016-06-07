@@ -126,6 +126,9 @@ xanga/libdecoder.a `imlib2-config --libs` -lImlib2
 * vi /opt/graphite/webapp/graphite/local_settings.py
 * TIME_ZONE = 'Asia/Shanghai'
 
+####测试
+    sudo python /opt/graphite/examples/example-client.py
+
 ####爬取
 * [Amazon](http://www.amazon.com/)
 * [zol论坛](http://bbs.zol.com.cn/)(htmlib5)
