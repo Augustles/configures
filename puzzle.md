@@ -6,3 +6,4 @@
 gevent有一个主hub greenlet,会先回到主hub greenlet然后再switc相应的greenlet
 4. phantomjs 如何发送cookie, 报错:
 WebDriverException: Message: {"errorMessage":"Can only set Cookies for the current domain"}
+5. phantomjs 如何发送data(body)
