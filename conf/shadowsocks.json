@@ -1,3 +1,5 @@
+# ssserver -c ss.json -d start
+# 先关闭防火墙
 {
     "server":"0.0.0.0",
     "server_port":9008,
