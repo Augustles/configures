@@ -38,11 +38,11 @@ def worker(qs):
     soup = bs(r.content, 'lxml')
     info = soup.find('div', attrs={'class': 'stream'}).find_all('li', attrs={'data-item-type': 'tweet'})
     for x in info:
-        text = x.find('div', attrs={'class': 'js-tweet-text-container'}).text
+        # text = x.find('div', attrs={'class': 'js-tweet-text-container'}).text
         imgs = x.find_all('img', attrs={'data-aria-label-part': True})
         videos = x.find('div', attrs={'class': 'AdaptiveMedia-video'})
-        if len(text) > 10:
-            text = text[:11]
+        # if len(text) > 10:
+            # text = text[:11]
         if imgs:
             for y in imgs:
                 img = y.get('src', '')
@@ -60,10 +60,13 @@ def worker(qs):
                     f.writelines(content)
         if videos:
            for z in videos.find_all('div', attrs={'class': 'PlayableMedia-player'}):
-               video = 'https://twitter.com/i/videos/tweet/' + x.get('data-item-id', '')
+               video = 'https://savedeo.com/download?url=' +  'https://twitter.com/yua_mikami/status/' + x.get('data-item-id', '')
                print video
                r = yield downloader(video)
-               fn = video.split('/')[-1] + '.mp4'
+               soup = bs(r.content, 'lxml')
+               gen_file = soup.find('span', attrs={'data-hash': True}).get('data-checksize', '')
+               r = yield downloader(gen_file)
+               fn = video.split('/')[-1]
                content = r.content
                res = gen_md5(content)
                pk = res.result()
