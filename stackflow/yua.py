@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup as bs
 from hashlib import md5 as _md5
 import ipdb
 import json
-
+from subprocess import check_output, Popen, PIPE
 
 def md5(msg):
     return _md5(msg).hexdigest()
@@ -116,7 +116,6 @@ def master(qs):
 
 @gen.coroutine
 def nstart(qs, first=True):
-    print qs
     if not first:
         cmd = "curl 'https://www.instagram.com/query/' -H \
             'cookie: mid=WHSEXwAEAAFmyVFoJ_n7bZ5eD9VE; ig_pr=2; ig_vw=1276; \
@@ -131,12 +130,22 @@ def nstart(qs, first=True):
             ++++caption%2C%0A++++code%2C%0A++++comments+%7B%0A++++++count%0A++++%7D%2C%0A++++comments_disabled%2C%0A++++\
             date%2C%0A++++dimensions+%7B%0A++++++height%2C%0A++++++width%0A++++%7D%2C%0A++++display_src%2C%0A++++id%2C%0A++++\
             is_video%2C%0A++++likes+%7B%0A++++++count%0A++++%7D%2C%0A++++owner+%7B%0A++++++id%0A++++%7D%2C%0A++++thumbnail_src%2C%0A++++\
-            video_views%0A++%7D%2C%0A++page_info%0A%7D%0A+%7D&ref=users%3A%3Ashow&query_id=17846611669135658' --compressed".format(qs)
-        out = os.system(cmd)
+            video_views%0A++%7D%2C%0A++page_info%0A%7D%0A+%7D&ref=users%3A%3Ashow&query_id=17846611669135658' --compressed > test.txt".format(qs)
+        status = os.system(cmd)
+        with open('test.txt', 'r') as f:
+            out = f.readlines()
         # soup = bs(out, 'lxml')
-        soup = json.loads(out)
+        true = True
+        false = False
+        soup = json.loads(str(out[0]))
         print soup
-        info = soup.find_all('img', attrs={'src': True})
+        flag = soup['media']['page_info']['has_next_page']
+        if flag:
+            next_page = soup['media']['page_info']['end_cursor']
+        else:
+            return
+        for x in soup['media']['nodes']:
+            print x['display_src'].split('?')[0], flag, next_page
     else:
         r = webdriver.PhantomJS()
         r.get(qs)
@@ -144,7 +153,8 @@ def nstart(qs, first=True):
         r.quit()
         info = soup.find('div', attrs={'class': '_nljxa'}).find_all('img', attrs={'src': True})
         next_page = '1407856604427021999'
-        yield master(next_page)
+        print next_page
+        yield nstart(next_page, first=False)
     for x in info:
         img = x.get('src', '').split('?')[0]
         print img
