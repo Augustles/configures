@@ -47,7 +47,7 @@ def worker(qs, first=True):
 
     info = soup.find('div', attrs={'class': 'stream'}).find_all('li', attrs={'data-item-type': 'tweet'})
     next_page = info[-1].get('data-item-id', '')
-    yield worker(next_page)
+    yield worker(next_page, first=False)
     for x in info:
         # text = x.find('div', attrs={'class': 'js-tweet-text-container'}).text
         imgs = x.find_all('img', attrs={'data-aria-label-part': True})
