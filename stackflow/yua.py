@@ -29,14 +29,25 @@ def gen_md5(qs):
 
 @gen.coroutine
 def downloader(qs):
-    r = requests.get(qs, verify=False)
+    r = requests.get(qs, headers=headers, verify=True)
     raise gen.Return(r)
 
 @gen.coroutine
-def worker(qs):
-    r = requests.get(qs, headers=headers, verify=False)
-    soup = bs(r.content, 'lxml')
+def worker(qs, first=True):
+    print 'starting %s ...' %qs
+    if not first:
+        url = 'https://twitter.com/i/profiles/show/yua_mikami/timeline/tweets?include_available_features=1&include_entities=1&max_position=%s&reset_error_state=false' %qs
+        r = requests.get(url, headers=headers)
+        soup = r.json()
+        if soup['has_more_items']:
+            soup = bs(soup['items_html'], 'lxml')
+    else:
+        r = requests.get(qs, headers=headers, verify=True)
+        soup = bs(r.content, 'lxml')
+
     info = soup.find('div', attrs={'class': 'stream'}).find_all('li', attrs={'data-item-type': 'tweet'})
+    next_page = info[-1].get('data-item-id', '')
+    yield worker(next_page)
     for x in info:
         # text = x.find('div', attrs={'class': 'js-tweet-text-container'}).text
         imgs = x.find_all('img', attrs={'data-aria-label-part': True})
@@ -61,7 +72,6 @@ def worker(qs):
         if videos:
            for z in videos.find_all('div', attrs={'class': 'PlayableMedia-player'}):
                video = 'https://savedeo.com/download?url=' +  'https://twitter.com/yua_mikami/status/' + x.get('data-item-id', '')
-               print video
                r = yield downloader(video)
                soup = bs(r.content, 'lxml')
                gen_file = soup.find('span', attrs={'data-hash': True}).get('data-checksize', '')
@@ -79,6 +89,14 @@ def worker(qs):
                    f.writelines(content)
 
     raise gen.Return(npks)
+
+@gen.coroutine
+def master(qs):
+    url = 'https://twitter.com/i/profiles/show/yua_mikami/timeline/tweets?include_available_features=1&include_entities=1&max_position=%s&reset_error_state=false' %qs
+    r = requests.get(url, headers=headers)
+    soup = r.json()
+    if soup['has_more_items']:
+        info = bs(soup['items_html'], 'lxml')
 
 @gen.coroutine
 def main():
