@@ -54,44 +54,58 @@ def worker(qs, first=True):
         yield worker(next_page, first=False)
 
     for x in info:
-        # text = x.find('div', attrs={'class': 'js-tweet-text-container'}).text
-        imgs = x.find_all('img', attrs={'data-aria-label-part': True})
-        videos = x.find('div', attrs={'class': 'AdaptiveMedia-video'})
-        # if len(text) > 10:
-            # text = text[:11]
-        if imgs:
-            for y in imgs:
-                img = y.get('src', '')
-                r = yield downloader(img)
-                fn = img.split('/')[-1]
-                content = r.content
-                res = gen_md5(content)
-                pk = res.result()
-                if pk in pks:
-                    continue
-                else:
-                    npks.add(pk)
-                print 'downloading %s' %(img)
-                with open(fn, 'wb') as f:
-                    f.writelines(content)
-        if videos:
-           for z in videos.find_all('div', attrs={'class': 'PlayableMedia-player'}):
-               video = 'https://savedeo.com/download?url=' +  'https://twitter.com/yua_mikami/status/' + x.get('data-item-id', '')
-               r = yield downloader(video)
-               soup = bs(r.content, 'lxml')
-               gen_file = soup.find('span', attrs={'data-hash': True}).get('data-checksize', '')
-               r = yield downloader(gen_file)
-               fn = gen_file.split('/')[-1]
-               content = r.content
-               res = gen_md5(content)
-               pk = res.result()
-               if pk in pks:
-                   continue
-               else:
-                   npks.add(pk)
-               print 'downloading %s' %(gen_file)
-               with open(fn, 'wb') as f:
-                   f.writelines(content)
+        try:
+            # text = x.find('div', attrs={'class': 'js-tweet-text-container'}).text
+            imgs = x.find_all('img', attrs={'data-aria-label-part': True})
+            videos = x.find('div', attrs={'class': 'AdaptiveMedia-video'})
+            # if len(text) > 10:
+                # text = text[:11]
+            if imgs:
+                for y in imgs:
+                    try:
+                        img = y.get('src', '')
+                        r = yield downloader(img)
+                        fn = img.split('/')[-1]
+                        content = r.content
+                        res = gen_md5(content)
+                        pk = res.result()
+                        if pk in pks:
+                            continue
+                        else:
+                            npks.add(pk)
+                        print 'downloading %s' %(img)
+                        with open(fn, 'wb') as f:
+                            f.writelines(content)
+                    except Exception as e:
+                        with open('yua.log', 'a') as f:
+                            f.writelines(e)
+
+            if videos:
+               for z in videos.find_all('div', attrs={'class': 'PlayableMedia-player'}):
+                   try:
+                       video = 'https://savedeo.com/download?url=' +  'https://twitter.com/yua_mikami/status/' + x.get('data-item-id', '')
+                       r = yield downloader(video)
+                       soup = bs(r.content, 'lxml')
+                       gen_file = soup.find('span', attrs={'data-hash': True}).get('data-checksize', '')
+                       r = yield downloader(gen_file)
+                       fn = gen_file.split('/')[-1]
+                       content = r.content
+                       res = gen_md5(content)
+                       pk = res.result()
+                       if pk in pks:
+                           continue
+                       else:
+                           npks.add(pk)
+                       print 'downloading %s' %(gen_file)
+                       with open(fn, 'wb') as f:
+                           f.writelines(content)
+                   except Exception as e:
+                       with open('yua.log', 'a') as f:
+                           f.writelines(e)
+
+        except Exception as e:
+            with open('yua.log', 'a') as f:
+                f.writelines(e)
 
     raise gen.Return(npks)
 
