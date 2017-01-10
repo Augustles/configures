@@ -19,7 +19,7 @@ with open('yua.txt', 'r') as f:
 
 npks = set()
 
-os.chdir(os.getcwd() + '/yua/')
+os.chdir(os.getcwd() + '/yua2/')
 headers = {
     'UserAgent': 'Googlespider',
 }
@@ -110,9 +110,6 @@ def worker(qs, first=True):
 
     raise gen.Return(npks)
 
-@gen.coroutine
-def master(qs):
-    pass
 
 @gen.coroutine
 def nstart(qs, first=True):
@@ -131,33 +128,47 @@ def nstart(qs, first=True):
             date%2C%0A++++dimensions+%7B%0A++++++height%2C%0A++++++width%0A++++%7D%2C%0A++++display_src%2C%0A++++id%2C%0A++++\
             is_video%2C%0A++++likes+%7B%0A++++++count%0A++++%7D%2C%0A++++owner+%7B%0A++++++id%0A++++%7D%2C%0A++++thumbnail_src%2C%0A++++\
             video_views%0A++%7D%2C%0A++page_info%0A%7D%0A+%7D&ref=users%3A%3Ashow&query_id=17846611669135658' --compressed > test.txt".format(qs)
-        status = os.system(cmd)
+        os.system(cmd)
         with open('test.txt', 'r') as f:
             out = f.readlines()
         # soup = bs(out, 'lxml')
-        true = True
-        false = False
         soup = json.loads(str(out[0]))
-        print soup
         flag = soup['media']['page_info']['has_next_page']
         if flag:
             next_page = soup['media']['page_info']['end_cursor']
         else:
             return
-        for x in soup['media']['nodes']:
-            print x['display_src'].split('?')[0], flag, next_page
+        info = soup['media']['nodes']
     else:
         r = webdriver.PhantomJS()
         r.get(qs)
         soup = bs(r.page_source, 'lxml')
         r.quit()
-        info = soup.find('div', attrs={'class': '_nljxa'}).find_all('img', attrs={'src': True})
         next_page = '1407856604427021999'
         print next_page
+        info = soup.find('div', attrs={'class': '_nljxa'}).find_all('img', attrs={'src': True})
         yield nstart(next_page, first=False)
     for x in info:
-        img = x.get('src', '').split('?')[0]
-        print img
+        try:
+            if flag:
+                img = x['display_src'].split('?')[0]
+            else:
+                img = x.get('src', '').split('?')[0]
+            r = yield downloader(img)
+            fn = img.split('/')[-1]
+            content = r.content
+            res = gen_md5(content)
+            pk = res.result()
+            if pk in pks:
+                continue
+            else:
+                npks.add(pk)
+            print 'downloading %s' %(img)
+            with open(fn, 'wb') as f:
+                f.writelines(content)
+        except Exception as e:
+            with open('yua.log', 'a') as f:
+                f.writelines(e)
 
 @gen.coroutine
 def main():
