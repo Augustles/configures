@@ -111,6 +111,7 @@ def worker(qs, first=True):
 
 @gen.coroutine
 def master(qs):
+    print qs
     cmd = "curl 'https://www.instagram.com/query/' -H \
         'cookie: mid=WHSEXwAEAAFmyVFoJ_n7bZ5eD9VE; ig_pr=2; ig_vw=1276; \
         s_network=""; csrftoken=8Fz2hZOeV0kXQk5tFJkVgUzqcnIAUi7e' -H \
@@ -120,17 +121,22 @@ def master(qs):
         'x-requested-with: XMLHttpRequest' -H 'x-csrftoken: 8Fz2hZOeV0kXQk5tFJkVgUzqcnIAUi7e' -H 'x-instagram-ajax: 1' -H \
         'content-type: application/x-www-form-urlencoded' -H 'accept: */*' -H \
         'referer: https://www.instagram.com/yua_mikami/' -H 'authority: www.instagram.com' --data \
-        'q=ig_user(2257433316)+%7B+media.after(%s%2C+12)+%7B%0A++count%2C%0A++nodes+%7B%0A\
+        'q=ig_user(2257433316)+%7B+media.after({0}%2C+12)+%7B%0A++count%2C%0A++nodes+%7B%0A\
         ++++caption%2C%0A++++code%2C%0A++++comments+%7B%0A++++++count%0A++++%7D%2C%0A++++comments_disabled%2C%0A++++\
         date%2C%0A++++dimensions+%7B%0A++++++height%2C%0A++++++width%0A++++%7D%2C%0A++++display_src%2C%0A++++id%2C%0A++++\
         is_video%2C%0A++++likes+%7B%0A++++++count%0A++++%7D%2C%0A++++owner+%7B%0A++++++id%0A++++%7D%2C%0A++++thumbnail_src%2C%0A++++\
-        video_views%0A++%7D%2C%0A++page_info%0A%7D%0A+%7D&ref=users%3A%3Ashow&query_id=17846611669135658' --compressed" %qs
+        video_views%0A++%7D%2C%0A++page_info%0A%7D%0A+%7D&ref=users%3A%3Ashow&query_id=17846611669135658' --compressed".format(qs)
+    out = os.system(cmd)
+    print out
 
 @gen.coroutine
-def nstart(qs):
+def nstart(qs, first=True):
     r = webdriver.PhantomJS()
+    r.get(qs)
     soup = bs(r.page_source, 'lxml')
     info = soup.find('div', attrs={'class': '_nljxa'}).find_all('img', attrs={'src': True})
+    next_page = '1407856604427021999'
+    yield master(next_page)
     for x in info:
         img = x.get('src', '').split('?')[0]
         print img
