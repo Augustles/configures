@@ -66,7 +66,7 @@ def worker(qs):
                soup = bs(r.content, 'lxml')
                gen_file = soup.find('span', attrs={'data-hash': True}).get('data-checksize', '')
                r = yield downloader(gen_file)
-               fn = video.split('/')[-1]
+               fn = gen_file.split('/')[-1]
                content = r.content
                res = gen_md5(content)
                pk = res.result()
@@ -74,7 +74,7 @@ def worker(qs):
                    continue
                else:
                    npks.add(pk)
-               print 'downloading %s' %(video)
+               print 'downloading %s' %(gen_file)
                with open(fn, 'wb') as f:
                    f.writelines(content)
 
