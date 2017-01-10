@@ -41,13 +41,18 @@ def worker(qs, first=True):
         soup = r.json()
         if soup['has_more_items']:
             soup = bs(soup['items_html'], 'lxml')
+            info = soup.find_all('li', attrs={'data-item-type': 'tweet'})
+            next_page = info[-1].get('data-item-id', '')
+            yield worker(next_page, first=False)
+        else:
+            return
     else:
         r = requests.get(qs, headers=headers, verify=True)
         soup = bs(r.content, 'lxml')
+        info = soup.find('div', attrs={'class': 'stream'}).find_all('li', attrs={'data-item-type': 'tweet'})
+        next_page = info[-1].get('data-item-id', '')
+        yield worker(next_page, first=False)
 
-    info = soup.find('div', attrs={'class': 'stream'}).find_all('li', attrs={'data-item-type': 'tweet'})
-    next_page = info[-1].get('data-item-id', '')
-    yield worker(next_page, first=False)
     for x in info:
         # text = x.find('div', attrs={'class': 'js-tweet-text-container'}).text
         imgs = x.find_all('img', attrs={'data-aria-label-part': True})
