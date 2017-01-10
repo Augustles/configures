@@ -127,9 +127,9 @@ def master(qs):
         video_views%0A++%7D%2C%0A++page_info%0A%7D%0A+%7D&ref=users%3A%3Ashow&query_id=17846611669135658' --compressed" %qs
 
 @gen.coroutine
-def start(qs):
-    r = requests.get(qs)
-    soup = bs(r.content, 'lxml')
+def nstart(qs):
+    r = webdriver.PhantomJS()
+    soup = bs(r.page_source, 'lxml')
     info = soup.find('div', attrs={'class': '_nljxa'}).find_all('img', attrs={'src': True})
     for x in info:
         img = x.get('src', '').split('?')[0]
@@ -139,7 +139,7 @@ def start(qs):
 def main():
     start = 'https://twitter.com/yua_mikami'
     start = 'https://www.instagram.com/yua_mikami/'
-    npks = yield start(start)
+    npks = yield nstart(start)
     os.chdir('/root/')
     with open('yua.txt', 'a') as f:
         f.writelines(npks)
