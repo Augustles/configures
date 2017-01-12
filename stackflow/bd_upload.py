@@ -4,12 +4,19 @@ import os
 from tornado import gen, ioloop
 from tasks import upload
 import shutil
+from gevent import monkey
+monkey.patch_all()
+import gevent
+from gevent.pool import Group, Pool
 
 path = '/root/web/configures/stackflow'
-@gen.coroutine
-def upload1(cmd):
-    status = os.system(cmd)
-    raise gen.Return(status)
+
+def async_upload(cmd):
+    print cmd
+    r = os.system(cmd)
+    gevent.sleep()
+    if not r:
+        shutil.rmtree(cmd.split()[-1])
 
 def main():
     os.chdir(path)
@@ -28,11 +35,12 @@ def main():
     if not status:
         os.chdir('ck101')
         print 'starting upload ck101 ...'
+        cmds = set()
         for x in os.listdir('ck101/卡提諾正妹抱報'):
             print x
             cmd = 'bypy upload ck101/卡提諾正妹抱報/%s ck101/卡提諾正妹抱報/%s' %(x, x)
-            r = os.system(cmd)
-            if not r:
-                shutil.rmtreee('ck101/卡提諾正妹抱報/%s' %x)
+            cmds.add(cmd)
+        greenlet = [gevent.spawn(async_upload, x) for x in cmds]
+        gevent.joinall(greenlet)
 
 main()
