@@ -1,6 +1,25 @@
 
 # mongodb manual
 
+# 高并发时使用findAndModify查询并修改数据
+# mongodb主从部署
+###简单的主从配置
+1. 从节点直接从主节点同步数据,从节点之间不相互同步
+2. 从节点不可以写入, 可读
+3. 容错性低
+mongod --dbpath ./db/master --port 10000 --master
+mongod --dbpath ./db/slave --port 10001 --slave --source 127.0.0.1:10000
+####replica Set(副本集,主从集群)(读写分离)
+mongod --dbpath ./db/node1 --port 10001 --replSet node
+mongod --dbpath ./db/node2 --port 10002 --replSet node
+mongod --dbpath ./db/node3 --port 10003 --replSet node
+config ={_id:"node",members:[{_id:1,host:"127.0.0.1:10001"}]}
+rs.initiate(config)
+rs.add('127.0.0.1:10002')
+rs.addArb('127.0.0.1:10003') # 添加仲裁节点,不存储数据,主节点挂了,secondary会成为主节点
+rs.slaveOk()
+####
+
 # mongodb 3 验证
 # 配置 security: authorization: enabled
 # 添加用户 userAdminAnyDatabase
