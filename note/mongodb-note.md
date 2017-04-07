@@ -1,7 +1,24 @@
 
 # mongodb manual
 
-# 高并发时使用findAndModify查询并修改数据
+# 高并发时可以采用mongodb自带原子操作,
+# 1.使用findAndModify查询并修改数据,返回之前的记录
+db.book.findAndModify({
+     query:{ id: bookid, status: 'free'},
+     update:{
+         $set:{
+             status: 'busy'
+         }
+     }
+ })
+# 2. User.update({id : user_id }, param , { upsert : true })
+# 3. $isolated
+db.foo.update(
+         { status : "A" , $isolated : 1 },
+         { $inc : { count : 1 } },
+         { multi: true }
+     )
+# 二段提交
 # mongodb主从部署
 ###简单的主从配置
 1. 从节点直接从主节点同步数据,从节点之间不相互同步
@@ -22,14 +39,17 @@ rs.slaveOk()
 
 # mongodb 3 验证
 # 配置 security: authorization: enabled
-# 添加用户 userAdminAnyDatabase
-db.createUser(
-  {
-    user: "admin",
-    pwd: "nana",
-    roles: [ { role: "readWrite", db: "nbbs" },  { role: "readWrite", db: "watch" },  { role: "readWrite", db: "newzolbb" }]
-  }
-)
+# 添加role, 再添加用户,实现任意数据库读取写入权限
+db.createRole({role:'sysadmin',roles:[],
+privileges:[
+{resource:{anyResource:true},actions:['anyAction']}
+]})
+db.createUser({
+user:'august',
+pwd:'nana',
+roles:[
+{role:'sysadmin',db:'admin'}
+]})
 # dbinfo = 'mongodb://admin:nana@192.168.1.102/nbbs?authMechanism=SCRAM-SHA-1'
 db = MongoClient(dbinfo).nbbs.nzol
 
