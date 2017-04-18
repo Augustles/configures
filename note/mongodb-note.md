@@ -67,9 +67,10 @@ db = MongoClient(dbinfo).nbbs.nzol
 ####$and db.op_test.find({"$and" : [{"name":"steven"},{"age":20}]})
 ####$not db.op_test.find({"age":{"$not":{"$lt":20}}})
 ####$exists 存在某个属性
+####$regex 正则匹配
 ####db.rpdb.find.count(); 计算文档条数
 
-####vi /etc/mongodb.conf 加上auth=true =>添加验证
+####vi /etc/mongodb.conf 加上auth=true =>添加验证 --auth命令行下
 ####修改blind_ip 0.0.0.0 =>外网访问
 ####use admin; db.addUser('admin', '123456') =>添加密码
 ####use admin; db.shutdownServer() =>关闭mongod
@@ -89,12 +90,15 @@ db = MongoClient(dbinfo).nbbs.nzol
 ####db.nzol.dropIndexes() =>删除除_id的所有索引
 ####all.update({'_id': tid}, {'$rename': {"postmain": "content"}}) =>修改字段名
 ####db.all.update({},{$unset:{"posttime":""}},{multi:true}) =>删除字段pymono暂时没有成功
+####update(query, {upsert: true}, {multi: true}) 找到匹配条件的记录,upsert=true就插入,否则不追加,multi=true会更新全部匹配的记录
 ####导出csv
 mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv
 ####mongodump 备份
   mongodump -h 127.0.0.1 -d zolbbs -c all -o /root/mongobackup/
+  mongodump -h 127.0.0.1 --port 27019  -uaugust -pnana -o /mnt/backup # 备份整个数据库
 ####mongorestore 还原
   mongorestore -d newzolbb -c newall /root/mongobackup/zolbbs/all.bson
+  mongorestore /mnt/backup
 ####去重
   db.alist.aggregate(
             [
