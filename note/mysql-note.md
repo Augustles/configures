@@ -66,6 +66,39 @@
 #### [http://www.w3cschool.cc/mysql/mysql-alter.html]
 #### [http://www.cnblogs.com/aspnethot/articles/1397130.html]
 
+####mysql存储引擎myisam和innodb的区别
+innodb支持事务,myisam不支持
+innodb支持行级锁,myisam不支持
+innodb支持mvcc,myisam不支持
+innodb支持外键,myisam不支持
+innodb不支持全文搜索,myisam支持
+
+####innodb引擎4大特性
+插入缓存(insert buffer)
+二次写(double write)
+自适应哈希索引(ahi)
+预读(read ahead)
+
+####myisam&innodb select count()哪个更快
+myisam更快,因为myisam内部维护了一个计数器,可以直接调用
+
+####drop,delete,truncate区别
+drop直接删除表, 删除表结构及索引
+truncate删除表中的数据,再插入时自增长id从1开始,
+delete可以加where子句,保留增长id,会一行一行删除
+
+####视图的作用，视图可以更改么？
+视图是虚拟的表
+视图包含动态检索数据的查询,不包含任何列或数据
+视图不能被索引,也不能有关联的触发器和默认值
+视图可以用来简化检索,保护数据
+
+####sql语句优化
+尽量避免在where子句中使用!=或者<>操作符,否则mysql会放弃索引进行全表扫描
+尽量避免在where子句中对字段进行null值判断,可以设置默认值为0或者空字符串
+where num=0 or name=''
+可以用exists代替in
+
 CREATE TABLE `douban` (
   `linkmd5id` char(32) NOT NULL COMMENT 'url md5编码id',
   `title` text COMMENT '标题',
