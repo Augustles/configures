@@ -120,4 +120,7 @@ mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2
                   }
             );
         });
-
+####统计
+db.court_param.aggregate({ $match: {new53: 1, pages: {$gt: 100}
+}},
+{ $group: { _id : null, sum : { $sum: "$pages" } } });
