@@ -24,6 +24,7 @@
 22. easybcd/ultraiso 系统安装
 23. screen/tmux 切换session
 24. fiddler/charles/wireshark/scapy 抓包
+25. thor/ldss/surge&&packet capture
 ####chrome&firefox
 1. EditThisCookie/firebug
 2. Octotree github
@@ -34,7 +35,6 @@
 2. casperjs npm install -g casperjs
 3. apt-get/aptitude
 4. windowtousb/hdd
-=======
 
 
 

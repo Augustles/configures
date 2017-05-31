@@ -66,6 +66,14 @@
 #### [http://www.w3cschool.cc/mysql/mysql-alter.html]
 #### [http://www.cnblogs.com/aspnethot/articles/1397130.html]
 
+####mysql修改密码
+use mysql
+update user set password=password('123456') where user='root' and host='localhost';
+flush privileges;
+
+####执行外部sql语句, 
+mysql -uroot -p123456 < yingshi.sql
+
 ####mysql存储引擎myisam和innodb的区别
 innodb支持事务,myisam不支持
 innodb支持行级锁,myisam不支持
