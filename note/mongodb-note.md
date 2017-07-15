@@ -69,6 +69,11 @@ db = MongoClient(dbinfo).nbbs.nzol
 ####$exists 存在某个属性
 ####$regex 正则匹配
 ####db.rpdb.find.count(); 计算文档条数
+####_id查询,db.filmmaker.find({'_id': ObjectId("58ec69fbca0fcdd3c2c0ff46")})
+####$in,$all,列表查询,filminfo.find({'alias': {'$all': [""]}})
+####$size,是匹配数组内的元素数量,db.filminfo.find({alias: {$size: 5}})
+####$type,是匹配类型的
+####$elemMatch可以匹配内数组内的元素
 
 ####vi /etc/mongodb.conf 加上auth=true =>添加验证 --auth命令行下
 ####修改blind_ip 0.0.0.0 =>外网访问

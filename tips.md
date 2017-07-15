@@ -14,3 +14,5 @@
 ####sudo 免密码
     %sudo   ALL=(ALL:ALL) ALL
     august ALL=(ALL) NOPASSWD: ALL
+####python dict,list显示中文
+    json.dumps(lst, ensure_ascii=False)

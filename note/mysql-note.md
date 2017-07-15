@@ -71,7 +71,7 @@ use mysql
 update user set password=password('123456') where user='root' and host='localhost';
 flush privileges;
 
-####执行外部sql语句, 
+####执行外部sql语句,
 mysql -uroot -p123456 < yingshi.sql
 
 ####mysql存储引擎myisam和innodb的区别
@@ -107,15 +107,18 @@ delete可以加where子句,保留增长id,会一行一行删除
 where num=0 or name=''
 可以用exists代替in
 
-CREATE TABLE `douban` (
-  `linkmd5id` char(32) NOT NULL COMMENT 'url md5编码id',
-  `title` text COMMENT '标题',
+CREATE TABLE if not exists `douban` (
+  `linkmd5id` varchar(32) NOT NULL COMMENT 'url md5编码id',
+  `title` varchar(128) COMMENT '标题',
   `description` text COMMENT '描述',
   `link` text  COMMENT 'url链接',
-  `created` datetime DEFAULT NULL  COMMENT '创建时间',
-  `updated` datetime DEFAULT NULL  COMMENT '最后更新时间',
-  PRIMARY KEY (`linkmd5id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `create_time` int(11) DEFAULT NULL  COMMENT '创建时间',
+  `update_time` int(11) DEFAULT NULL  COMMENT '最后更新时间',
+  PRIMARY KEY (`linkmd5id`),
+  key(`create_time`),
+  key(`update_time`),
+  key(`link`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '豆瓣爬取表';
 
 
 python manage.py schemamigration youappname --initial
