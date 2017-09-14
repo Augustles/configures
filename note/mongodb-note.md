@@ -94,7 +94,8 @@ db = MongoClient(dbinfo).nbbs.nzol
 ####db.nzol.getIndexs() =>查看索引
 ####db.nzol.dropIndexes() =>删除除_id的所有索引
 ####all.update({'_id': tid}, {'$rename': {"postmain": "content"}}) =>修改字段名
-####db.all.update({},{$unset:{"posttime":""}},{multi:true}) =>删除字段pymono暂时没有成功
+####db.all.update({},{$unset:{"posttime":1}},{multi:true}) =>删除字段
+#### res = local.filmmaker.update({'fmid': fmid, 'films': {'$elemMatch': {'name': name, 'fid': old_fid}}}, {'$set': {'films.$.fid': fid}}) 更新element
 ####update(query, {upsert: true}, {multi: true}) 找到匹配条件的记录,upsert=true就插入,否则不追加,multi=true会更新全部匹配的记录
 ####导出csv
 mongoexport -h 127.0.0.1 -d amazon -c movie -f link,title,rating --csv -o test_2.csv
