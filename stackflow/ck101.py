@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup as bs
 import ipdb
 from pymongo import MongoClient
 
-db = MongoClient().web.ck101
+db = MongoClient('127.0.0.1:27019').web.ck101
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36',
@@ -40,27 +40,30 @@ def parse_img(qs, title):
 
 
 @gen.coroutine
-def parse_url(url):
+def parse_url(url, idx):
     try:
         res = requests.get(url, headers=headers)
     except:
+        gen.Sleep(3)
         yield parse_url(url)
     soup = bs(res.content, 'lxml')
-    if soup.find('ul', attrs={'class': 'waterfall'}):
-        infos = {x.find('a').get('href', ''):x.find('a').get('title', '').strip()  for x in soup.find('ul', attrs={'class': 'waterfall'}).find_all('li')}
+    if soup.find('table', attrs={'id': 'threadlisttableid'}):
+        infos = {x.find('a').get('href', ''):x.find('a').get('title', '').strip()  for x in soup.find('table', attrs={'id': 'threadlisttableid'}).find_all('tbody', attrs={'tid': True})}
     else:
         infos = {}
     for url, name in infos.items():
-        updater = {'url': url, 'name': name}
-        db.update({'url': url}, {'$set': updater}, upsert=True)
-    ipdb.set_trace()
+        updater = {'url': url, 'name': name, 'category': idx}
+        db.update({'url': url, 'category': idx}, {'$set': updater}, upsert=True)
 
 @gen.coroutine
 def main():
-    uri = 'http://ck101.com/forum-1345-%s.html'
-    for x in xrange(1, 100):
-        url = uri%x
-        yield parse_url(url)
+    # uri = 'http://ck101.com/forum-1345-%s.html'
+    uri = 'https://ck101.com/forum-%s-%s.html'
+    source_types = [3581, 3583, 3584, 3582]
+    for x in xrange(1, 999):
+        for y in source_types:
+            url = uri%(y, x)
+            yield parse_url(url, y)
 
 if __name__ == '__main__':
     st = time()
