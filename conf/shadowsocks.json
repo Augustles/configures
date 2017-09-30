@@ -1,4 +1,4 @@
-# ssserver -c ss.json -d start
+# ssserver -c shadowsocks.json -d start
 # 先关闭防火墙,iptables,firewall,selinux
 {
     "server":"0.0.0.0",

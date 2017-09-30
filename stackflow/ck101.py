@@ -38,6 +38,18 @@ def parse_img(qs, title):
     print status
 
 
+@gen.coroutine
+def parse_page(url):
+    try:
+        res = requests.get(url, headers=headers)
+    except:
+        gen.Sleep(3)
+        yield parse_url(url)
+    if res.status_code == 200:
+        raise gen.Return(res)
+    else:
+        gen.Sleep(3)
+        yield parse_page(url)
 
 @gen.coroutine
 def parse_url(url, idx):
@@ -58,12 +70,18 @@ def parse_url(url, idx):
 @gen.coroutine
 def main():
     # uri = 'http://ck101.com/forum-1345-%s.html'
-    uri = 'https://ck101.com/forum-%s-%s.html'
-    source_types = [3581, 3583, 3584, 3582]
-    for x in xrange(1, 999):
-        for y in source_types:
-            url = uri%(y, x)
-            yield parse_url(url, y)
+    #  uri = 'https://ck101.com/forum-%s-%s.html'
+    #  source_types = [3581, 3583, 3584, 3582]
+    #  for x in xrange(1, 999):
+        #  for y in source_types:
+            #  url = uri%(y, x)
+            #  yield parse_url(url, y)
+
+    for x in db.find({'category': {'$exists': True}}, no_cursor_timeout=True):
+        url = x.get('url', '')
+        if url:
+            res = yield parse_page(url)
+            db.update({'url': url, 'category': x['category']}, {'$set': {'html': res.content}})
 
 if __name__ == '__main__':
     st = time()
