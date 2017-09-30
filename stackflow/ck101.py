@@ -7,8 +7,8 @@ import os
 import re
 from bs4 import BeautifulSoup as bs
 import ipdb
-from tasks import down_img
 from pymongo import MongoClient
+
 db = MongoClient().web.ck101
 
 headers = {
@@ -26,7 +26,6 @@ def parse_img(qs, title):
     soup = bs(r.content, 'lxml')
     info = soup.find_all('img', attrs={'class': 'zoom'})
     imgs = [x.get('file', '') + '\n' for x in info]
-    os.chdir(ur'/root/web/configures/stackflow/ck101/ck101/卡提諾正妹抱報/')
     if not os.path.exists(title):
         os.mkdir(title)
     else:
@@ -41,38 +40,26 @@ def parse_img(qs, title):
 
 
 @gen.coroutine
-def parse_url(qs):
-    urls = set()
-    r = requests.get(qs, headers=headers)
-    soup = bs(r.content, 'lxml')
-    info = soup.find('ul', attrs={'class': 'waterfall'}).find_all('li')
-    for x in info:
-        url = x.find('a').get('href', '')
-        urls.add(url)
-    print(len(urls))
-    for x in urls:
-        try:
-            r = requests.get(x, headers=headers)
-            soup = bs(r.content, 'lxml')
-            title = soup.find('h1').text
-            print title
-            title = re.search(ur'第\d+期', title).group(0)
-            info = soup.find('td', attrs={'class': 't_f', 'id': True}).find_all('a', attrs={'target': '_blank'})
-            for y in info:
-                if 'http://ck101.com/thread' in y.get('href', ''):
-                    url = y.get('href', '')
-                    yield parse_img(url, title)
-        except Exception as e:
-            print(e)
+def parse_url(url):
+    try:
+        res = requests.get(url, headers=headers)
+    except:
+        yield parse_url(url)
+    soup = bs(res.content, 'lxml')
+    if soup.find('ul', attrs={'class': 'waterfall'}):
+        infos = {x.find('a').get('href', ''):x.find('a').get('title', '').strip()  for x in soup.find('ul', attrs={'class': 'waterfall'}).find_all('li')}
+    else:
+        infos = {}
+    for url, name in infos.items():
+        updater = {'url': url, 'name': name}
+        db.update({'url': url}, {'$set': updater}, upsert=True)
+    ipdb.set_trace()
 
 @gen.coroutine
 def main():
-    t = db.find_one()
-    n = int(t.get('n') + 1)
-    db.save({'_id': t['_id'], 'n': n})
-    print n
-    for x in xrange(n, n+1):
-        url = 'http://ck101.com/forum-1345-%s.html' %x
+    uri = 'http://ck101.com/forum-1345-%s.html'
+    for x in xrange(1, 100):
+        url = uri%x
         yield parse_url(url)
 
 if __name__ == '__main__':
