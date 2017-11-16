@@ -46,10 +46,17 @@ def parse_page(url):
         gen.Sleep(3)
         yield parse_url(url)
     if res.status_code == 200:
-        #  soup = bs(res.content, 'lxml')
-        #  info = {}
-        #  page = soup.find('article')
-        raise gen.Return(res)
+        info = {}
+        soup = bs(res.content, 'lxml')
+        article = soup.find('article')
+        if article.find('span', attrs={'class': 'postDateLine'}):
+            info['create_time_str'] = article.find('span', attrs={'class': 'postDateLine'}).text.strip()
+        if article.find('a', attrs={'class': 'authorName'}):
+            info['username'] = article.find('a', attrs={'class': 'authorName'}).get('title', '').strip()
+            info['user_space'] = 'https://ck101.com' + article.find('a', attrs={'class': 'authorName'}).get('href', '')
+        if article.find('tbody'):
+            info['html3'] = str(article.find('tbody'))
+        raise gen.Return(info)
     else:
         gen.Sleep(3)
         yield parse_page(url)
@@ -87,7 +94,8 @@ def main():
             ipdb.set_trace()
         if url:
             res = yield parse_page(url)
-            db.update({'url': url, 'category': x['category']}, {'$set': {'html': res.content}})
+            x.update(res)
+            db.update( {'url': url, 'category': x['category']}, {'$set': x} )
 
 if __name__ == '__main__':
     st = time()
