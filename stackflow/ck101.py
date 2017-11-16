@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup as bs
 import ipdb
 from pymongo import MongoClient
 
-db = MongoClient('127.0.0.1:27019').web.ck101
+db = MongoClient('104.225.144.193:27019').web.ck101
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36',
@@ -46,6 +46,9 @@ def parse_page(url):
         gen.Sleep(3)
         yield parse_url(url)
     if res.status_code == 200:
+        #  soup = bs(res.content, 'lxml')
+        #  info = {}
+        #  page = soup.find('article')
         raise gen.Return(res)
     else:
         gen.Sleep(3)
@@ -71,14 +74,17 @@ def parse_url(url, idx):
 def main():
     # uri = 'http://ck101.com/forum-1345-%s.html'
     #  uri = 'https://ck101.com/forum-%s-%s.html'
-    #  source_types = [3581, 3583, 3584, 3582]
+    source_types = [3581, 3583, 3584, 3582]
     #  for x in xrange(1, 999):
         #  for y in source_types:
             #  url = uri%(y, x)
             #  yield parse_url(url, y)
 
-    for x in db.find({'category': {'$exists': True}}, no_cursor_timeout=True):
+    for x in db.find({'category': {'$in': source_types}}, no_cursor_timeout=True):
         url = x.get('url', '')
+        if x.get('html'):
+            soup = bs(x['html'], 'lxml')
+            ipdb.set_trace()
         if url:
             res = yield parse_page(url)
             db.update({'url': url, 'category': x['category']}, {'$set': {'html': res.content}})

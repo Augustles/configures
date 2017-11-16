@@ -25,6 +25,7 @@
 23. screen/tmux 切换session
 24. fiddler/charles/wireshark/scapy 抓包
 25. thor/ldss/surge&&packet capture
+26. netspeedmonitor显示网速
 ####chrome&firefox
 1. EditThisCookie/firebug
 2. Octotree github

@@ -39,16 +39,27 @@
 #### select * from test_b right join test_b on test_a.name=test_b.name;  right join, 右侧表里的信息全部查询出来,左边以NULL代替
 #### select * from test_a inner join test_b on test_a.name=test_b.name;  inner join,左右两边都相等才会查询显示
 
+##查询 select from where group by having order by limit,查询顺序
+#### select count(*) from amazon; 计算记录条数,count
+####select * from user where `from`='nf' and user_type=0; where查询,find
+####select * from user where `from`='nf' and tel like '170%'; 模糊插叙,regex
+####select * from user where `from`='nf' having user_type=0; having查询,与where类似,执行机制不同
+#### select *,count(*) from user group by user_typ desc; 对user_type进行分组(其实就是去重)
+#### select * from user where `from`='nf' order by user_id desc,user_type asc; 多个字段排序,sort
+####select distinct(version), user_id from user where `from`='nf'; 查询不重复的值,distinct(tag)
+#### select * from amazon limit 5; 限制返回条数,limit
+
+##插入
+insert into user set username='august',password='nana';
+
+##更新
+update user set username='tom' where username='august';
 
 #### 查询数据库的容量
 #### SELECT table_schema AS 'Db Name',Round( Sum( data_length + index_length ) / 1024 / 1024, 3 ) AS 'Db Size (MB)',
 #### Round( Sum( data_free ) / 1024 / 1024, 3 ) AS 'Free Space (MB)' FROM information_schema.tables GROUP BY table_schema ;
 
 #### select * from douban into outfile '/tmp/out.csv' fields terminated by ',' optionally enclosed by '"' escaped by '"' lines terminated by '\r\n'; 导出csv文件
-
-#### select count(*) from amazon; 计算记录条数
-#### select * from amazon limit 5;
-
 
 #### select version(); mysql版本信息
 #### select database(); 当前数据库名
@@ -91,9 +102,9 @@ innodb不支持全文搜索,myisam支持
 myisam更快,因为myisam内部维护了一个计数器,可以直接调用
 
 ####drop,delete,truncate区别
-drop直接删除表, 删除表结构及索引
-truncate删除表中的数据,再插入时自增长id从1开始,
-delete可以加where子句,保留增长id,会一行一行删除
+drop直接删除表, 删除表结构及索引,drop table user;
+truncate删除表中的数据,再插入时自增长id从1开始,truncate user;
+delete可以加where子句,保留增长id,会一行一行删除,delete from user;
 
 ####视图的作用，视图可以更改么？
 视图是虚拟的表
@@ -119,6 +130,20 @@ CREATE TABLE if not exists `douban` (
   key(`update_time`),
   key(`link`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '豆瓣爬取表';
+
+####where与having查询区别
+where与having子句用法,功能相同,执行机制不同
+where是在开始执行的时候进行检测,对原数据进行过滤
+having是对查询出来的结果再进行过滤
+where不可以使用字段的别名,having可以
+where不可以使用和计函数,having可以
+
+####隔离级别
+####SELECT @@tx_isolation; 查看隔离级别
+read uncommited(未提交读),会产生脏读,重复读,幻读等,一般不使用
+read commited(提交读),会产生重复读(数据不一致), 对读取到记录加锁(记录锁)
+repeatable read(重复读),会产生幻读(数量不一致), mysql默认的
+serializable(串行读),可以解决脏读,重复读,幻读(就是锁表)
 
 
 python manage.py schemamigration youappname --initial
