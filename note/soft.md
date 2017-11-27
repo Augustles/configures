@@ -24,12 +24,18 @@
 22. easybcd/ultraiso 系统安装
 23. screen/tmux 切换session
 24. fiddler/charles/wireshark/scapy 抓包
+25. thor/ldss/surge&&packet capture
+26. netspeedmonitor显示网速
+####chrome&firefox
+1. EditThisCookie/firebug
+2. Octotree github
+3. Postman - REST Client shortcut
+4. Vimium
 ## 爬虫
 1. phantomjs
 2. casperjs npm install -g casperjs
 3. apt-get/aptitude
 4. windowtousb/hdd
-=======
 
 
 

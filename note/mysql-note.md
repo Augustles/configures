@@ -39,16 +39,27 @@
 #### select * from test_b right join test_b on test_a.name=test_b.name;  right join, 右侧表里的信息全部查询出来,左边以NULL代替
 #### select * from test_a inner join test_b on test_a.name=test_b.name;  inner join,左右两边都相等才会查询显示
 
+##查询 select from where group by having order by limit,查询顺序
+#### select count(*) from amazon; 计算记录条数,count
+####select * from user where `from`='nf' and user_type=0; where查询,find
+####select * from user where `from`='nf' and tel like '170%'; 模糊插叙,regex
+####select * from user where `from`='nf' having user_type=0; having查询,与where类似,执行机制不同
+#### select *,count(*) from user group by user_typ desc; 对user_type进行分组(其实就是去重)
+#### select * from user where `from`='nf' order by user_id desc,user_type asc; 多个字段排序,sort
+####select distinct(version), user_id from user where `from`='nf'; 查询不重复的值,distinct(tag)
+#### select * from amazon limit 5; 限制返回条数,limit
+
+##插入
+insert into user set username='august',password='nana';
+
+##更新
+update user set username='tom' where username='august';
 
 #### 查询数据库的容量
 #### SELECT table_schema AS 'Db Name',Round( Sum( data_length + index_length ) / 1024 / 1024, 3 ) AS 'Db Size (MB)',
 #### Round( Sum( data_free ) / 1024 / 1024, 3 ) AS 'Free Space (MB)' FROM information_schema.tables GROUP BY table_schema ;
 
 #### select * from douban into outfile '/tmp/out.csv' fields terminated by ',' optionally enclosed by '"' escaped by '"' lines terminated by '\r\n'; 导出csv文件
-
-#### select count(*) from amazon; 计算记录条数
-#### select * from amazon limit 5;
-
 
 #### select version(); mysql版本信息
 #### select database(); 当前数据库名
@@ -60,20 +71,79 @@
 #### 外键约束主要用来维护两个表之间数据的一致性
 #### 主键一定是唯一性索引,但唯一性索引不一定为主键
 #### 一个表中只能有一个主键,可以有多个唯一性索引
+#### 存储引擎,MyISAM查询较多使用,InnoDB写入较多使用
 #### 主键列不允许空值,唯一性索引允许空值
 #### 主键能被其他字段作外键引用,索引不能作为外键引用
 #### [http://www.w3cschool.cc/mysql/mysql-alter.html]
 #### [http://www.cnblogs.com/aspnethot/articles/1397130.html]
 
-CREATE TABLE `douban` (
-  `linkmd5id` char(32) NOT NULL COMMENT 'url md5编码id',
-  `title` text COMMENT '标题',
+####mysql修改密码
+use mysql
+update user set password=password('123456') where user='root' and host='localhost';
+flush privileges;
+
+####执行外部sql语句,
+mysql -uroot -p123456 < yingshi.sql
+
+####mysql存储引擎myisam和innodb的区别
+innodb支持事务,myisam不支持
+innodb支持行级锁,myisam不支持
+innodb支持mvcc,myisam不支持
+innodb支持外键,myisam不支持
+innodb不支持全文搜索,myisam支持
+
+####innodb引擎4大特性
+插入缓存(insert buffer)
+二次写(double write)
+自适应哈希索引(ahi)
+预读(read ahead)
+
+####myisam&innodb select count()哪个更快
+myisam更快,因为myisam内部维护了一个计数器,可以直接调用
+
+####drop,delete,truncate区别
+drop直接删除表, 删除表结构及索引,drop table user;
+truncate删除表中的数据,再插入时自增长id从1开始,truncate user;
+delete可以加where子句,保留增长id,会一行一行删除,delete from user;
+
+####视图的作用，视图可以更改么？
+视图是虚拟的表
+视图包含动态检索数据的查询,不包含任何列或数据
+视图不能被索引,也不能有关联的触发器和默认值
+视图可以用来简化检索,保护数据
+
+####sql语句优化
+尽量避免在where子句中使用!=或者<>操作符,否则mysql会放弃索引进行全表扫描
+尽量避免在where子句中对字段进行null值判断,可以设置默认值为0或者空字符串
+where num=0 or name=''
+可以用exists代替in
+
+CREATE TABLE if not exists `douban` (
+  `linkmd5id` varchar(32) NOT NULL COMMENT 'url md5编码id',
+  `title` varchar(128) COMMENT '标题',
   `description` text COMMENT '描述',
   `link` text  COMMENT 'url链接',
-  `created` datetime DEFAULT NULL  COMMENT '创建时间',
-  `updated` datetime DEFAULT NULL  COMMENT '最后更新时间',
-  PRIMARY KEY (`linkmd5id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `create_time` int(11) DEFAULT NULL  COMMENT '创建时间',
+  `update_time` int(11) DEFAULT NULL  COMMENT '最后更新时间',
+  PRIMARY KEY (`linkmd5id`),
+  key(`create_time`),
+  key(`update_time`),
+  key(`link`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '豆瓣爬取表';
+
+####where与having查询区别
+where与having子句用法,功能相同,执行机制不同
+where是在开始执行的时候进行检测,对原数据进行过滤
+having是对查询出来的结果再进行过滤
+where不可以使用字段的别名,having可以
+where不可以使用和计函数,having可以
+
+####隔离级别
+####SELECT @@tx_isolation; 查看隔离级别
+read uncommited(未提交读),会产生脏读,重复读,幻读等,一般不使用
+read commited(提交读),会产生重复读(数据不一致), 对读取到记录加锁(记录锁)
+repeatable read(重复读),会产生幻读(数量不一致), mysql默认的
+serializable(串行读),可以解决脏读,重复读,幻读(就是锁表)
 
 
 python manage.py schemamigration youappname --initial

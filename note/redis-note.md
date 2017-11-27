@@ -2,6 +2,8 @@
 sudo apt-get install redis-server
 #####进入交互模式
 redis-cli
+keys * 查看所有键值
+del "start:court_url" 删除键值
 set a '2333'
 get a
 append a 'hi'

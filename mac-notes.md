@@ -37,6 +37,8 @@ brew cask基于brew的mac封装机制
 	easy_install pip
 ##### 安装常用软件
 	brew install git iterm2 zsh vim mou
+	# 10.9
+	brew install vim --with-override-system-vi
 	brew install mysql
 	brew cask install Sequel-Pro lanuchrocket
 	pip install cheat
