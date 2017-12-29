@@ -64,18 +64,69 @@ def parse_url(url):
             attrs['create_time'] = int(time())
             db.update({'url': url}, {'$set': attrs})
 
-@gen.coroutine
+def parse_content(raw_url, url, htmls=[], imgs=[]):
+    print(url)
+    try:
+        res = requests.get(url, headers=headers)
+        if res.status_code != 200:
+            sleep(3)
+            return parse_content(url)
+    except:
+        sleep(3)
+        return parse_content(url)
+    soup = bs(res.content, 'lxml')
+    html = soup.find('div', attrs={'class': 'entry-content'})
+    htmls.append(str(html))
+    if html:
+        next_url = html.find('p', attrs={'align': 'center'})
+        img = [x.get('data-lazy-src', '') for x in html.find_all('img', attrs={'src': True, 'data-lazy-src': True, 'data-lazy-type': 'image'})]
+        imgs.extend(img)
+        if next_url:
+            next_url = next_url.find('button', attrs={'class': 'border222'})
+            if next_url:
+                next_url = next_url.findNext().get('href', '')
+                if next_url and next_url.startswith('http'):
+                    print next_url, 111
+                    return parse_content(raw_url, next_url, htmls, imgs)
+    category, tag, read_count = [], [], 0
+    if soup.find('div', attrs={'class': 'entry-utility'}):
+        category = [y.text for y in  soup.find('div', attrs={'class': 'entry-utility'}).find_all('a', attrs={'rel': 'category'})]
+        tag = [y.text for y in soup.find('div', attrs={'class': 'entry-utility'}).find_all('a', attrs={'rel': 'tag'}) if y.text not in category]
+        read_count_str = soup.find('div', attrs={'class': 'entry-utility'}).text
+        read_count_str = read_count_str[:read_count_str.find('|')]
+        read_count = ''.join(re.findall(r'\d+', read_count_str))
+    now = int(time())
+    attrs = dict(
+        category=category,
+        tag=tag,
+        imgs=imgs,
+        htmls=htmls,
+        read_count=read_count,
+        update_time=now,
+        status=2,
+    )
+    print('update url: %s'%raw_url)
+    db.update({'url': raw_url}, {'$set': attrs})
+
+def get_items():
+    return db.find({'status': 0}).limit(10)
+
+#  @gen.coroutine
 def main():
-    uri = 'http://kenshin.hk/page/%d/'
-    for x in range(1, 1700):
-        try:
-            url = uri%x
-            yield parse_url(url)
-        except:
-            pass
+    #  uri = 'http://kenshin.hk/page/%d/'
+    #  url = 'http://kenshin.hk/2017/11/21/【cm】北川景子穿黑色吊帶長裙和超漂亮電視機成絕/'
+    #  parse_content(url)
+    #  ipdb.set_trace()
+    items = get_items()
+    while items:
+        for x in items:
+            url = x['url']
+            parse_content(url, url)
+        items = get_items()
 
 if __name__ == '__main__':
-    st = time()
-    ioloop.IOLoop.current().run_sync(main)
-    print 'spend %.3f' %(time()-st)
+    main()
+    #  st = time()
+    #  ioloop.IOLoop.current().run_sync(main)
+    #  print 'spend %.3f' %(time()-st)
 
