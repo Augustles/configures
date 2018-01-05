@@ -1,0 +1,7 @@
+syntax enable
+syntax on
+colorscheme desert
+set nu
+set completeopt=longest,menu
+set tabstop=4
+set paste
