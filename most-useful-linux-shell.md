@@ -66,6 +66,8 @@
     ls|xargs rm
 ####删除重复文件
     find -name '*.sh' -exec md5sum {} \;| sort | uniq -d -w 33
+####删除指定后缀
+    sudo find . -maxdepth 100 -name '*.mp4' -print0 | xargs -I{} -0 rm -f {}
 ####替换文本, 批量替换
     sed 's/Line/line/g' file.txt # 加-i才会修改文件
     sed 's/12/abc/s' `grep 12 -rl /dir` # -i就地修改
