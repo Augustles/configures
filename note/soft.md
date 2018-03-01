@@ -37,7 +37,10 @@
 3. apt-get/aptitude
 4. windowtousb/hdd
 
-
+####https双端证书绑定绕过
+*. 安卓,使用酷安下载Xposed框架,安装JustTrustMe模块既可绕过https证书
+*. 可以使用Genymotion安装nexus5.1,打转arm架构补丁
+*. ios,需越狱,安装ssl-kill-switch2
 
 Synergy 键盘共享(全平台)
 bittorrent-sync 点对点同步
