@@ -39,8 +39,14 @@
 
 ####https双端证书绑定绕过
 *. 安卓,使用酷安下载Xposed框架,安装JustTrustMe模块既可绕过https证书
-*. 可以使用Genymotion安装nexus5.1,打转arm架构补丁
+*. 可以使用Genymotion安装nexus5.1或6.0,打转arm架构补丁
 *. ios,需越狱,安装ssl-kill-switch2
+
+####android无源码反编译
+*. [AndroidStudio无源码动态调试apk](https://www.jianshu.com/p/1a28e6439c6a)
+*. Android Studio 3.0, smaliidea 0.05
+*. Android Studio debug 调试配置
+*. ida pro
 
 Synergy 键盘共享(全平台)
 bittorrent-sync 点对点同步
