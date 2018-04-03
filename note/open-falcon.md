@@ -1,5 +1,8 @@
 ##open-falcon
 
+1. [Open-Falcon官方文档](https://book.open-falcon.org/zh_0_2/quick_install/)
+2. [open-falcon(v0.2)部署个人总结](https://www.jianshu.com/p/3df8e722359d)
+
 ####安装完golang,安装open-falcon
 cd $GOPATH/src/github.com/open-falcon/falcon-plus/
 git clone https://github.com/open-falcon/falcon-plus.git
