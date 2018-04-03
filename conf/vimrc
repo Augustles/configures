@@ -31,6 +31,7 @@ let g:mapleader = ','
 syntax on
 
 " install bundles
+" PlugInstall安装vim插件
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
