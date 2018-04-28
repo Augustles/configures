@@ -71,6 +71,9 @@
 ####替换文本, 批量替换
     sed 's/Line/line/g' file.txt # 加-i才会修改文件
     sed 's/12/abc/s' `grep 12 -rl /dir` # -i就地修改
+    export a='root:123456@tcp(127.0.0.1:3306)'
+    export b='root:@tcp(127.0.0.1:3306)'
+    sed -i "s/$b/$a/g" `grep $b -rl .`
 ####读取某行
     sed -n '6p' file.txt # 读取第六行
     sed '3d' file.txt # 删除第三行

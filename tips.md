@@ -11,8 +11,13 @@
     SELINUX
 ####生成公钥, git不用密码登陆, linux把生成的id_rsa.pub放入authorized_keys中
     ssh-keygen -t rsa -C
+####centos代码显示高亮
+    git config --global color.ui true
 ####sudo 免密码
     %sudo   ALL=(ALL:ALL) ALL
     august ALL=(ALL) NOPASSWD: ALL
 ####python dict,list显示中文
     json.dumps(lst, ensure_ascii=False)
+####更换git 地址
+    git remote rm origin
+    git remote add origin [url]
