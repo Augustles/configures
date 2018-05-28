@@ -11,6 +11,9 @@
     SELINUX
 ####生成公钥, git不用密码登陆, linux把生成的id_rsa.pub放入authorized_keys中
     ssh-keygen -t rsa -C
+#####免密码登录
+     配置.ssh/config
+    ssh-copy-id -i ~/.ssh/id_rsa.pub august@127.0.0.1 -p 2225
 ####centos代码显示高亮
     git config --global color.ui true
 ####sudo 免密码
