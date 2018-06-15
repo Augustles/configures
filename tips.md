@@ -14,6 +14,10 @@
 #####免密码登录
      配置.ssh/config
     ssh-copy-id -i ~/.ssh/id_rsa.pub august@127.0.0.1 -p 2225
+####添加环境变量
+    export PATH="/usr/local/python3/bin/:$PATH"
+####服务器按照上传,下载
+    sudo yum install lrzsz -y
 ####centos代码显示高亮
     git config --global color.ui true
 ####sudo 免密码
