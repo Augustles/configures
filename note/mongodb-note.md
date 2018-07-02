@@ -18,6 +18,15 @@ db.foo.update(
          { $inc : { count : 1 } },
          { multi: true }
      )
+
+### 查询慢记录
+
+```
+db.setProfilingLevel(1); # 开启慢记录查询
+db.getProfilingLevel(); # 获取当前的Profile级别
+db.system.profile.find(); # 查看慢记录数据
+```
+
 # 二段提交
 # mongodb主从部署
 ###简单的主从配置

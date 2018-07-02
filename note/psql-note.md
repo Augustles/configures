@@ -1,5 +1,13 @@
 ## psql note
 
+##### 启动
+
+```
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+```
+
+
+
 ##### 登录账号
 
 ```
@@ -31,6 +39,8 @@ psql -U postgres -d postgres -p 5432 -u指定用户,-d指定数据库,-p指定�
 12. psql -d yfuser -U yfuser -f data.sql 导入数据,需新建好数据库
 
 13. \password 设置当前登录用户的密码
+
+##### 表继承,表分区(当表数据过大),引用外部源
 
 ##### 数组类型操作(array)
 
