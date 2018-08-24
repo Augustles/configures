@@ -2,7 +2,7 @@
 ####window,linux,mac
 1. chrome/firefox/safari浏览器
 2. vim/sublime text/notepad++文本编辑器
-3. mou/markdownpad md文本
+3. mou/markdownpad/typora md文本
 4. zsh/bash/fish/cygwin shell环境
 5. ssh/telnet远程登录
 6. sftp/ftp/filezilla ftp文件管理
@@ -26,11 +26,12 @@
 24. fiddler/charles/wireshark/scapy 抓包
 25. thor/ldss/surge&&packet capture
 26. netspeedmonitor显示网速
-####chrome&firefox
-1. EditThisCookie/firebug
-2. Octotree github
-3. Postman - REST Client shortcut
-4. Vimium
+    ####chrome&firefox
+27. EditThisCookie/firebug
+28. Octotree github
+29. Postman - REST Client shortcut
+30. Vimium
+31. robo 3t/navicat premium mongo/postgres Gui
 ## 爬虫
 1. phantomjs
 2. casperjs npm install -g casperjs
@@ -62,7 +63,7 @@ fing; 网络连接
 juicessh; ssh
 
 tips:
-1. * crontab -e/l, /etc/init.d/rc.local,
+1. `crontab -e/l, /etc/init.d/rc.local,`
 2. 任务计划程序, `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`
 3. `netstat -ano` 查看是否有可疑的连接，pid
 4. windows批文件, linux shell

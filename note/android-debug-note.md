@@ -1,6 +1,7 @@
 ## 安卓调试
 adb install 1.apk 安装apk安装包
 adb uninstall 1.apk 卸载安装包
+adb devices 获取deviceName
 adb shell dumpsys activity | grep mFocusedActivity 显示当前应用activity
 adb shell ps |grep bobo 查看当前bobo pid
 adb forward tcp:8800 jdwp:30203 端口转发以便smali,ida调用
